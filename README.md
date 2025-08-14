@@ -16,16 +16,16 @@ API: NewsAPI.org for fetching latest news
 Hosting: Vercel
 
 ## Installation & Setup
-# Clone the repository
+Clone the repository
 git clone https://github.com/Soumya190/prime-news
 
-# Navigate to the project folder
+Navigate to the project folder
 cd news-portal
 
-# Install dependencies
+Install dependencies
 npm install
 
-# Start the development server
+Start the development server
 npm run dev
 
 ## Folder Structure
