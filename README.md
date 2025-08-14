@@ -17,7 +17,7 @@ Hosting: Vercel
 
 ## Installation & Setup
 # Clone the repository
-git clone https://github.com/yourusername/news-portal.git
+git clone https://github.com/Soumya190/prime-news
 
 # Navigate to the project folder
 cd news-portal
