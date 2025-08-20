@@ -10,21 +10,43 @@ export const Header = () => {
       <div className={styles.logo}>
         <h1>PRIME NEWS</h1>
         {/* <p>Stay updated with the latest news</p> */}
-        <p className={styles.english}>English</p>
+        {/* <p className={styles.english}>English</p> */}
+        <Link href="/Languages/Malayalam" className={styles.malayalam}>
         <p className={styles.malayalam}>Malayalam</p>
+        </Link>
+        <Link href="/Languages/Bengali" className={styles.bengali}>
         <p className={styles.bengali}>Bengali</p>
+        </Link>
         <Link href="/Languages/Hindi" className={styles.hindi}>
         <p >Hindi</p>
         </Link>
+        <Link href="/Languages/Telugu" className={styles.telugu}>
         <p className={styles.telugu}>Telugu</p>
+        </Link>
+        <Link href="/Languages/Marathi" className={styles.marathi}>
         <p className={styles.marathi}>Marathi</p>
+        </Link>
+        <Link href="/Languages/Tamil" className={styles.tamil}>
         <p className={styles.gujarati}>Gujarati</p>
+        </Link>
+        <Link href="/Languages/Tamil" className={styles.tamil}>
         <p className={styles.tamil}>Tamil</p>
+        </Link>
+        <Link href="/Languages/Kannada" className={styles.kannada}>
         <p className={styles.kannada}>Kannada</p>
+        </Link>
+        <Link href="/Languages/Punjabi" className={styles.punjabi}>
         <p className={styles.punjabi}>Punjabi</p>
+        </Link>
+        <Link href="/Languages/Urdu" className={styles.urdu}>
         <p className={styles.urdu}>Urdu</p>
+        </Link>
+        <Link href="/Languages/Oriya" className={styles.oriya}>
         <p className={styles.oriya}>Oriya</p>
+        </Link>
+        <Link href="/Languages/Assamese" className={styles.assamese}>
         <p className={styles.assamese}>Assamese</p>
+        </Link>
       </div>
       <div className={styles.searchBar}>
         <h1>PRIME NEWS</h1>

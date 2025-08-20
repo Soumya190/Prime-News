@@ -10,7 +10,7 @@ const page = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const res = await fetch("https://newsdata.io/api/1/latest?apikey=pub_3ff884d506af452b8feecd9368c91f84&q=health&language=hinumber=10");
+                const res = await fetch("https://newsdata.io/api/1/latest?apikey=pub_3ff884d506af452b8feecd9368c91f84&q=health&language=gu");
                 console.log(res);
                 const data = await res.json();
                 console.log(data);
