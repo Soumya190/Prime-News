@@ -1,7 +1,7 @@
 "use client"
 
 import React, { useState, useEffect } from 'react'
-import styles from "@/Styles/languages/hindi.module.scss"
+import styles from "@/Styles/languages/telugu.module.scss"
 import Link from 'next/link';
 
 const page = () => {
@@ -10,7 +10,7 @@ const page = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const res = await fetch("https://newsdata.io/api/1/latest?apikey=pub_3ff884d506af452b8feecd9368c91f84&q=health&language=te");
+                const res = await fetch("https://newsdata.io/api/1/latest?apikey=pub_3ff884d506af452b8feecd9368c91f84&q=health&language=te&number=20");
                 console.log(res);
                 const data = await res.json();
                 console.log(data);

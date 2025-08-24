@@ -1,0 +1,94 @@
+.mainContainer {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-width: 0.1vw;
+    border-color: #b0afaf;
+    border-style: solid;
+    // padding: 3vw;
+    gap: 2vw;
+
+    .sidebar {
+        width: 40%;
+        background-color: #f2eeee;
+        height: 100%;
+        box-shadow: #6c6a6a;
+        box-shadow: 2vw;
+    }
+
+    .mainContent {
+        width: 100%;
+        background-color: #f8f6f6;
+        height: 100%;
+
+        .content {
+            padding: 2vw;
+            display: grid;
+            // height: 25vw;
+            gap: 2vw;
+
+            .card {
+                display: flex;
+                border-radius: 0.5vw;
+                background-color: white;
+                padding: 1vw;
+
+                .news {
+                    display: grid;
+                    width: 80%;
+                    // background-color: red;
+                    // height: auto;
+
+                    h1 {
+                        padding: 1vw;
+                        font-size: 1.4vw;
+
+                    }
+
+                    p {
+                        padding: 1vw;
+                        display: -webkit-box;
+                        -webkit-line-clamp: 2;
+                        line-clamp: 2;
+                        -webkit-box-orient: vertical;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+
+                        line-height: 1.4em;
+                        max-height: calc(1.4em * 2)-0.6;
+                    }
+                }
+
+                // gap:6vw;
+
+                .imageDiv {
+                    display: grid;
+                    place-content: center;
+                    align-items: center;
+                    padding: 1vw;
+                    width: 25vw;
+                    // background-color: pink;
+
+                    img {
+                        width: auto;
+                        height: 10vw;
+                        border-radius: 0.2vw;
+                    }
+                }
+
+                .title {
+                    font-size: 1.5vw;
+                    font-weight: 600;
+                    margin-bottom: 1vw;
+                    padding: 1vw;
+                }
+
+                .link {
+                    text-decoration: underline;
+                    padding: 1vw;
+                }
+            }
+        }
+    }
+}

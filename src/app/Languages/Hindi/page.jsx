@@ -10,7 +10,7 @@ const page = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const res = await fetch("https://newsdata.io/api/1/latest?apikey=pub_3ff884d506af452b8feecd9368c91f84&q=health&language=hinumber=10");
+                const res = await fetch("https://newsdata.io/api/1/latest?apikey=pub_3ff884d506af452b8feecd9368c91f84&q=health&language=hi&size=10");
                 console.log(res);
                 const data = await res.json();
                 console.log(data);
@@ -41,7 +41,7 @@ const page = () => {
                                 />
                             )}
                             <h2 className={styles.title}>{item.title}</h2>
-                            <p className={styles.description}>{item.description}</p>
+                            <p className={styles.description}>`${item.description.length>20 }`</p>
                             <a
                                 href={item.link}
                                 target="_blank"

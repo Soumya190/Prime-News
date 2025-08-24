@@ -1,7 +1,7 @@
 "use client"
 
 import React, { useState, useEffect } from 'react'
-import styles from "@/Styles/languages/hindi.module.scss"
+import styles from "@/Styles/languages/bengali.module.scss"
 import Link from 'next/link';
 
 const page = () => {
@@ -15,7 +15,14 @@ const page = () => {
                 const data = await res.json();
                 console.log(data);
 
-                setData(data.results || []);
+                if(Array.isArray(data.results)){
+                    setData(data.results);
+                }
+                else{
+                    console.warn("Unexpected api result",data);
+                    setData([]);
+                }
+
             }
             catch (err) {
                 console.error("Error fetching data:", err);

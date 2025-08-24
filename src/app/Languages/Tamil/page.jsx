@@ -1,7 +1,7 @@
 "use client"
 
 import React, { useState, useEffect } from 'react'
-import styles from "@/Styles/languages/hindi.module.scss"
+import styles from "@/Styles/languages/tamil.module.scss"
 import Link from 'next/link';
 
 const page = () => {
