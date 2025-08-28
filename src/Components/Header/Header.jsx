@@ -4,29 +4,30 @@ import React, { useState, useEffect } from 'react'
 import styles from "@/Styles/Header/header.module.scss";
 import Link from 'next/link';
 
-export const Header = () => {
-  const [inputvalue, setInputValue] = useState('');
-  const [suggestion,setSuggestion] = useState([]);
+export const Header = (props) => {
+   const [searchTerm, setSearchTerm] = useState('');
+  const [filteredData, setFilteredData] = useState(props.ApiData || []);
 
-  const categories = ["Business","Entertainmen","Sports","Technology","Health","Politics","Education","Environment"];
-
-  const handleChange=(e)=>{
-    let target = e.target.value;
-    setInputValue(target);
-
-    if(target.trim()===""){
-      setSuggestion([]);
+  useEffect(() => {
+    if (!searchTerm) {
+      setFilteredData(props.ApiData);
+      return;
     }
-    else{
-      const filtered = categories.filter((item)=>{
-      item.toLowerCase().startsWith(target.toLowerCase())
-    })
-    setSuggestion(filtered);
-    console.log(filtered);
-    }
-  }
 
+    const results = props.ApiData.filter((el) =>
+      el.category?.some(cat => cat.toLowerCase().includes(searchTerm.toLowerCase()))
+    );
 
+    setFilteredData(results);
+  }, [searchTerm, props.ApiData]);
+
+  const handleSearch = (e) => {
+    setSearchTerm(e.target.value);
+  };
+
+  console.log("Filtered News:", filteredData);
+
+  console.log(props.ApiData);
   // console.log(inputvalue);
 
   return (
@@ -77,7 +78,8 @@ export const Header = () => {
         <div className={styles.searchInput}>
           <div className={styles.searchIcon}>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><path d="M480 272C480 317.9 465.1 360.3 440 394.7L566.6 521.4C579.1 533.9 579.1 554.2 566.6 566.7C554.1 579.2 533.8 579.2 521.3 566.7L394.7 440C360.3 465.1 317.9 480 272 480C157.1 480 64 386.9 64 272C64 157.1 157.1 64 272 64C386.9 64 480 157.1 480 272zM272 416C351.5 416 416 351.5 416 272C416 192.5 351.5 128 272 128C192.5 128 128 192.5 128 272C128 351.5 192.5 416 272 416z" /></svg>
-            <input type="text" placeholder='Enter your search' value={inputvalue} onChange={handleChange} />
+            <input type="text" placeholder='Enter your search'  value={searchTerm}
+              onChange={handleSearch}  />
           </div>
           <select >
             {/* <option selected disabled hidden> Categories</option> */}

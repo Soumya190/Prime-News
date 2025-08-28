@@ -6,7 +6,7 @@ import { MainSection } from "@/Components/MainSection";
 export default function Home() {
   return (
     <div className={styles.MainContainer}>
-      <Header />
+      {/* <Header /> */}
       <MainSection/>
     </div>
   );
