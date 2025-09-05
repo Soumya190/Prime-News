@@ -1,43 +1,60 @@
-// MainSection.jsx
 "use client";
 
-import React, { useState, useEffect } from 'react'
-import styles from '@/Styles/MainSection/mainSection.module.scss'
-import { Header } from './Header/Header'
+import React, { useState, useEffect } from "react";
+import styles from "@/Styles/MainSection/mainSection.module.scss";
+import { Header } from "./Header/Header";
 
 export const MainSection = () => {
   const [data, setData] = useState([]);
-  const [filteredData, setFilteredData] = useState([]);
+  const [searchItem, setSearchItem] = useState("");
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await fetch(`https://newsdata.io/api/1/latest?apikey=pub_3ff884d506af452b8feecd9368c91f84&q=business&language=en&size=10`);
-        const data = await res.json();
+        const res = await fetch(
+          `https://newsdata.io/api/1/latest?apikey=pub_3ff884d506af452b8feecd9368c91f84&q=business&language=en&size=10`
+        );
+        const json = await res.json();
 
         let seenArticle = new Set();
         let filteredNews = [];
-        data.results.forEach((article)=>{
+
+        json.results.forEach((article) => {
           const titleKey = article.title?.trim().toLowerCase();
-          if(!seenArticle.has(titleKey)){
-            seenArticle.add(titleKey);
-            filteredNews.push(article);
+
+          if (
+            Array.isArray(article.category) &&
+            article.category.length > 0 &&
+            typeof article.category[0] === "string" &&
+            article.category[0].trim() !== "" &&
+            article.category[0] !== "undefined"
+          ) {
+            if (!seenArticle.has(titleKey)) {
+              seenArticle.add(titleKey);
+              filteredNews.push(article);
+            }
           }
         });
 
         setData(filteredNews);
-        setFilteredData(filteredNews); // initially show all
       } catch (err) {
         console.error("Error fetching data:", err);
       }
-    }
+    };
 
     fetchData();
   }, []);
 
+  // ✅ filter news based on search input
+  const filteredData = data.filter((item) =>
+    item.category?.some((cat) =>
+      cat.toLowerCase().includes(searchItem.toLowerCase())
+    )
+  );
+
   return (
     <>
-      <Header ApiData={data} setFilteredData={setFilteredData} />
+      <Header searchItem={searchItem} setSearchItem={setSearchItem} />
       <div className={styles.mainContainer}>
         <div className={styles.sidebar}>
           <p>INDIA</p>
@@ -61,5 +78,5 @@ export const MainSection = () => {
         </div>
       </div>
     </>
-  )
-}
+  );
+};
