@@ -10,11 +10,55 @@
     gap: 2vw;
 
     .sidebar {
-        width: 40%;
-        background-color: #f2eeee;
+        width: 30%;
+        display: grid;
+        // place-content: center;
+        // padding: 2.2vw;
+        // gap:1vw;
+        background-color: #f8f6f6;
         height: 100%;
         box-shadow: #6c6a6a;
+        margin-left: 2vw;
         box-shadow: 2vw;
+
+        .sidebarContainer{
+            // height: 100%;
+            display: flex;
+            gap:1vw;
+            justify-content: center;
+            align-items: center;
+
+            .icon{
+                height: 3vw;
+                width: 3vw;
+                // border-color: #dad9d9;
+                // border:0.1vw;
+                // border-style: solid;
+                border-radius: 100%;
+                display: grid;
+                place-content: center;
+                align-items: center;
+                background-color: #bebcbc;
+
+                svg{
+                    height: 1.8vw;
+                    width: 1.8vw;
+                }
+            }
+
+            button{
+                height: 2vw;
+                width: 5vw;
+                border-radius:2vw;
+                color:black;
+                border-width: 0.1vw;
+                font-family: poppins;
+                font-size: 1vw;
+                border-color: black;
+                border-style: solid;
+                cursor: pointer;
+            }
+        }
     }
 
     .mainContent {

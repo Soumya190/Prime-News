@@ -5,8 +5,7 @@ import styles from "@/Styles/Header/header.module.scss";
 import Link from 'next/link';
 import { MainSection } from '../MainSection';
 
-export const Header = ({ searchItem, setSearchItem }) => {
-  
+export const Header = ({ searchItem, setSearchItem,onSelect,setOnSelect }) => {
   return (
     <div className={styles.mainContainer}>
       <div className={styles.logo}>
@@ -64,9 +63,9 @@ export const Header = ({ searchItem, setSearchItem }) => {
               onChange={(e) => setSearchItem(e.target.value)}
             />
           </div>
-          <select>
-            <option value="Business">Business</option>
-            <option value="Entertainment">Entertainment</option>
+          <select value={onSelect} onChange={(e)=>setOnSelect(e.target.value)}>
+            <option value="business">Business</option>
+            <option value="entertainment" >Entertainment</option>
             <option value="Sports">Sports</option>
             <option value="Technology">Technology</option>
             <option value="Health">Health</option>
@@ -76,7 +75,6 @@ export const Header = ({ searchItem, setSearchItem }) => {
           </select>
         </div>
       </div>
-      {/* <MainSection search={searchData}/> */}
     </div>
   )
 }

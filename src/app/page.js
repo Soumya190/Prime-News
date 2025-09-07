@@ -7,9 +7,10 @@ import { MainSection } from "@/Components/MainSection";
 
 export default function Home() {
   const [searchItem, setSearchItem] = useState("");
+  const [onSelect,setOnSelect] = useState("business");
   return (
     <div className={styles.MainContainer}>
-      <MainSection  />
+      <MainSection onSelect={onSelect} setOnSelect={setOnSelect} />
       {/* <Header searchItem={searchItem} setSearchItem={setSearchItem} /> */}
     </div>
   );
