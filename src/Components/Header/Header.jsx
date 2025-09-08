@@ -8,10 +8,8 @@ import { MainSection } from '../MainSection';
 export const Header = ({ searchItem, setSearchItem,onSelect,setOnSelect }) => {
   return (
     <div className={styles.mainContainer}>
-      <div className={styles.logo}>
+      {/* <div className={styles.logo}>
         <h1>PRIME NEWS</h1>
-        {/* <p>Stay updated with the latest news</p> */}
-        {/* <p className={styles.english}>English</p> */}
         <Link href="/Languages/Malayalam" className={styles.malayalam}>
           <p className={styles.malayalam}>Malayalam</p>
         </Link>
@@ -48,7 +46,7 @@ export const Header = ({ searchItem, setSearchItem,onSelect,setOnSelect }) => {
         <Link href="/Languages/Assamese" className={styles.assamese}>
           <p className={styles.assamese}>Assamese</p>
         </Link>
-      </div>
+      </div> */}
       <div className={styles.searchBar}>
         <h1>PRIME NEWS</h1>
         <div className={styles.searchInput}>
