@@ -1,122 +1,255 @@
-.mainContainer {
+.signInContainer {
     height: 100vh;
-    background-color: white;
+    width: 100vw;
     display: grid;
-    // width: 100vw;
+    gap: 0.7vw;
     place-content: center;
     align-items: center;
-    font-family: poppins;
-
-    .buttonContainer {
-        height: 3vw;
-        background-color: white;
-
-        .buttonDiv {
-            display: flex;
-            gap: 1vw;
+    font-family: 'poppins', sans-serif;
 
 
-            button {
-                height: 3vw;
-                width: 3vw;
-                border-radius: 50%;
-                border-color: #c9c5c5;
-                border-style: solid;
-
-                p {
-                    font-size: 1.2vw;
-                }
-            }
+    .signInHeader {
+        .heading {
+            font-size: 3rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            text-align: center;
+            color: black;
         }
 
+        .para {
+            font-size: 1rem;
+            color: #555;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+    }
+
+    .inputContainer1 {
+        display: grid;
+        place-content: center;
+        align-items: center;
+
+        label {
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+            color: black;
+        }
+
+        .inputBox1 {
+            display: flex;
+            gap: 1vw;
+            height: 2.5vw;
+            width: 25vw;
+            // background-color: pink;
+            // border: 1px solid #ccc;
+            border-radius: 3px;
+            box-shadow: #dddcdc 1px 1px 1px;
+
+            input {
+                // height: 2.5vw;
+                width: 21vw;
+                padding-left: 0.5vw;
+                text-decoration: none;
+                border: none;
+
+                &:focus {
+                    outline: none;
+                    box-shadow: none;
+                }
+            }
+
+            svg {
+                height: 1.2vw;
+                width: 1.2vw;
+                margin: auto 0;
+                margin-right: 0.5vw;
+                fill: #555;
+            }
+        }
 
     }
 
-    .mainContent {
-        // margin:0;
-        // background-color: pink;
-        // padding: 0;
-        display: flex;
-        width: 100%;
-        // gap:4vw;
+    .inputContainer2 {
+        display: grid;
 
-        .content1 {
-            height: 30vw;
-            width: 42.3vw;
-            // background-color: pink;
-
-            img {
-                height: 42.3vw;
-                width: 42.3vw;
-                // width: 100%;
-                // width: 60vw;
-            }
+        label {
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+            color: black;
         }
 
-        .content2 {
-            height: 42.6vw;
-            width: 50vw;
-            display: grid;
-            place-content: center;
+        .inputBox2 {
+            display: flex;
             gap: 1vw;
-            align-items: center;
-            background-color: white;
+            height: 2.5vw;
+            width: 25vw;
+            // background-color: pink;
+            // border: 1px solid #ccc;
+            border-radius: 3px;
+            box-shadow: #dddcdc 1px 1px 1px;
 
-            h1 {
-                text-align: center;
-            }
+            input {
+                width: 21vw;
+                padding-left: 0.5vw;
+                text-decoration: none;
+                border: none;
 
-            .btn1 {
-                height: 3vw;
-                border-radius: 1.5vw;
-                width: 25vw;
-                background-color: #f7f4f4;
-                border-color: #c9c5c5;
-                border-style: solid;
-                border-width: 0.1vw;
-                color: gray;
-                font-family: "poppins";
-                font-size: 1vw;
-                // border-width: ;
-            }
-
-            .line {
-                display: flex;
-                height: 0.1vw;
-                justify-content: center;
-                align-items: center;
-                gap: 1vw;
-
-                p {
-                    text-align: center;
-                    margin: 0;
-                    padding: 0;
-                    ;
-                }
-
-                hr {
-                    width: 10vw;
-                    color: gray;
-                    margin: 0;
-                    padding: 0;
-                    ;
+                &:focus {
+                    outline: none;
+                    box-shadow: none;
                 }
             }
 
-            .btn2 {
-                height: 3vw;
-                border-radius: 1.5vw;
-                width: 25vw;
-                background-color: red;
-                border-color: red;
-                border-style: solid;
-                font-size: 1vw;
-                border-width: 0.1vw;
-                color: white;
+            svg {
+                height: 1.2vw;
+                width: 1.2vw;
+                margin: auto 0;
+                margin-right: 0.5vw;
+                fill: #555;
             }
-
-            // background-color: red;
         }
 
+    }
+
+    .options{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 25vw;
+        font-size: 0.8rem;
+        font-weight: 600;
+        color: #555;
+
+        .rememberMe{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap:0.8vw;
+        }
+
+        .select{
+            height: 1.2vw;
+            width: 1.2vw;
+            // border: 1px solid #555;
+            box-shadow: #dddcdc 1px 1px 1px;
+            border-radius: 2px;
+            cursor: pointer;
+        }
+
+        p{
+            color:black;
+            cursor: pointer;
+        }
+    }
+
+    .signInBtn {
+        height: 2.7vw;
+        width: 25vw;
+        background-color: black;
+        color: white;
+        font-size: 1rem;
+        border-color: black;
+        border-style: solid;
+        font-weight: 500;
+    }
+
+    .signInLine {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap:0.5vw;
+
+        hr {
+            margin: 0;
+            padding: 0;
+            width:100%;
+            height: 0vw;
+            color: #f7f5f5;
+        }
+
+        p{
+            color:#646262;
+        }
+
+        // hr {
+        //     border: none;
+        //     border-top: 2px solid #333;
+        //     margin: 20px 0;
+        // }
+
+    }
+
+    .signInOptions{
+        display: flex;
+        gap:1.3vw;
+        justify-content: center;
+        align-items: center;
+
+        .googleBtn{
+            height: 2.7vw;
+            width:7.5vw;
+            background-color: black;
+            border:none;
+
+            svg{
+                height:1.2vw;
+                width:1.5vw;
+                margin:auto 0;
+                fill:white;
+            }
+        }
+
+        .appleBtn{
+            height: 2.7vw;
+            width:7.5vw;
+            background-color: black;
+            border:none;
+
+            svg{
+                height:1.2vw;
+                width:1.5vw;
+                margin:auto 0;
+                fill:white;
+            }
+        }
+
+        .microsoftBtn{
+            height: 2.7vw;
+            width:7.5vw;
+            background-color: black;
+            border:none;
+
+            svg{
+                height:1.2vw;
+                width:1.5vw;
+                margin:auto 0;
+                fill:white;
+            }
+        }
+    }
+
+    .signupOption{
+        text-align: center;
+        margin-top: 1rem;
+        color: #555;
+
+        p{
+            font-size: 0.9rem;
+        }
+
+        button {
+            background: none;
+            border: none;
+            color: #474646;
+            cursor: pointer;
+            font-size: 0.9rem;
+            padding: 0;
+            margin-left: 0.3rem;
+
+            &:hover {
+                color:#313030 ;
+            }
+        }
     }
 }

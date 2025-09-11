@@ -1,0 +1,42 @@
+.mainContainer {
+  height: auto;
+  display: grid;
+}
+.mainContainer .header {
+  background-color: green;
+  padding: 1vw;
+}
+.mainContainer .content {
+  display: flex;
+  padding: 2vw;
+  height: auto;
+  justify-content: center;
+  align-items: center;
+  gap: 2vw;
+  flex-wrap: wrap;
+}
+.mainContainer .card {
+  display: grid;
+  min-height: 25%;
+  width: 23vw;
+  border-radius: 0.5vw;
+  background-color: #ececec;
+}
+.mainContainer .card img {
+  width: 100%;
+  height: 12vw;
+  border-radius: 0.5vw;
+}
+.mainContainer .card .title {
+  font-size: 1.5vw;
+  font-weight: 600;
+  margin-bottom: 1vw;
+  padding: 1vw;
+}
+.mainContainer .card p {
+  padding: 1vw;
+}
+.mainContainer .card .link {
+  text-decoration: underline;
+  padding: 1vw;
+}/*# sourceMappingURL=bengali.module.css.map */
