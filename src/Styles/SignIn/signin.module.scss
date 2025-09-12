@@ -7,6 +7,23 @@
     align-items: center;
     font-family: 'poppins', sans-serif;
 
+    .backBtn{
+        height: 2vw;
+        width: 2vw;
+        // fill: #555;
+        // background-color: pink;
+        cursor: pointer;
+        margin-bottom: 1rem;
+        border: none;
+        // background-color: white;
+
+        svg{
+            height: 1.5vw;
+            width: 1.5vw;
+            fill: #555;
+        }
+    }
+
 
     .signInHeader {
         .heading {
