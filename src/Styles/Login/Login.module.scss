@@ -1,27 +1,44 @@
-.signInContainer {
+.loginmainContainer {
+    display: grid;
     height: 100vh;
     width: 100vw;
-    display: grid;
-    gap: 0.7vw;
-    place-content: center;
-    align-items: center;
-    font-family: 'poppins', sans-serif;
+    // background-color: pink;
 
-    .backBtn{
+    .backBtn {
         height: 2vw;
         width: 2vw;
-        // fill: #555;
-        // background-color: pink;
+        margin:1vw;
         cursor: pointer;
         margin-bottom: 1rem;
         border: none;
-        // background-color: white;
+        background-color: white;
 
-        svg{
-            height: 1.5vw;
-            width: 1.5vw;
+        svg {
+            height: 2vw;
+            width: 2vw;
             fill: #555;
         }
+    }
+}
+
+.signInContainer {
+    display: grid;
+    // gap: 0.7vw;
+    place-content: center;
+    align-items: center;
+    font-family: 'poppins', sans-serif;
+    // background-color: pink;
+
+    .loginContent {
+        height: 40vw;
+        width: 35vw;
+        display: grid;
+        gap: 0.5vw;
+        place-content: center;
+        align-items: center;
+        // background-color: pink;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+
     }
 
 
@@ -129,7 +146,7 @@
 
     }
 
-    .options{
+    .options {
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -138,14 +155,14 @@
         font-weight: 600;
         color: #555;
 
-        .rememberMe{
+        .rememberMe {
             display: flex;
             justify-content: center;
             align-items: center;
-            gap:0.8vw;
+            gap: 0.8vw;
         }
 
-        .select{
+        .select {
             height: 1.2vw;
             width: 1.2vw;
             // border: 1px solid #555;
@@ -154,8 +171,8 @@
             cursor: pointer;
         }
 
-        p{
-            color:black;
+        p {
+            color: black;
             cursor: pointer;
         }
     }
@@ -175,18 +192,18 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        gap:0.5vw;
+        gap: 0.5vw;
 
         hr {
             margin: 0;
             padding: 0;
-            width:100%;
+            width: 100%;
             height: 0vw;
             color: #f7f5f5;
         }
 
-        p{
-            color:#646262;
+        p {
+            color: #646262;
         }
 
         // hr {
@@ -197,61 +214,61 @@
 
     }
 
-    .signInOptions{
+    .signInOptions {
         display: flex;
-        gap:1.3vw;
+        gap: 1.3vw;
         justify-content: center;
         align-items: center;
 
-        .googleBtn{
+        .googleBtn {
             height: 2.7vw;
-            width:7.5vw;
+            width: 7.5vw;
             background-color: black;
-            border:none;
+            border: none;
 
-            svg{
-                height:1.2vw;
-                width:1.5vw;
-                margin:auto 0;
-                fill:white;
+            svg {
+                height: 1.2vw;
+                width: 1.5vw;
+                margin: auto 0;
+                fill: white;
             }
         }
 
-        .appleBtn{
+        .appleBtn {
             height: 2.7vw;
-            width:7.5vw;
+            width: 7.5vw;
             background-color: black;
-            border:none;
+            border: none;
 
-            svg{
-                height:1.2vw;
-                width:1.5vw;
-                margin:auto 0;
-                fill:white;
+            svg {
+                height: 1.2vw;
+                width: 1.5vw;
+                margin: auto 0;
+                fill: white;
             }
         }
 
-        .microsoftBtn{
+        .microsoftBtn {
             height: 2.7vw;
-            width:7.5vw;
+            width: 7.5vw;
             background-color: black;
-            border:none;
+            border: none;
 
-            svg{
-                height:1.2vw;
-                width:1.5vw;
-                margin:auto 0;
-                fill:white;
+            svg {
+                height: 1.2vw;
+                width: 1.5vw;
+                margin: auto 0;
+                fill: white;
             }
         }
     }
 
-    .signupOption{
+    .signupOption {
         text-align: center;
         margin-top: 1rem;
         color: #555;
 
-        p{
+        p {
             font-size: 0.9rem;
         }
 
@@ -265,7 +282,7 @@
             margin-left: 0.3rem;
 
             &:hover {
-                color:#313030 ;
+                color: #313030;
             }
         }
     }
