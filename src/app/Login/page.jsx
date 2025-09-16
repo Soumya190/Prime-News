@@ -7,7 +7,7 @@ import Link from 'next/link'
 const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [buttonClickValid,setButtonClickValid]=useState(false);
+    const [buttonClickValid, setButtonClickValid] = useState(false);
 
     const emailVerification = () => {
         if (email.length > 0 && email !== null && email !== "") {
@@ -35,9 +35,11 @@ const Login = () => {
         else {
             alert("Please enter your email");
         }
+
+        setEmail(email);
     }
 
-    const passwordVerification=()=>{
+    const passwordVerification = () => {
         if (password.length > 0 && password !== null && password !== "") {
             // password.match('^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$')&& password.match('[@#\$%\^&\*\(\)_\-\+=]')&& 
             if (password.length >= 8) {
@@ -70,15 +72,20 @@ const Login = () => {
         else {
             alert("Please enter your password");
         }
+        setPassword(password);
     }
 
 
-    const handleSubmit = (emailVerification,passwordVerification) => {
-
-        if(emailVerification&&passwordVerification){
+    const handleSubmit = () => {
+        emailVerification();
+        passwordVerification();
+        // console.log(password);        
+        if(emailVerification() && passwordVerification()){
             setButtonClickValid(true);
+            console.log(buttonClickValid);
         }
     }
+    
 
     return (
         <div className={styles.loginmainContainer}>
@@ -115,11 +122,9 @@ const Login = () => {
                         </div>
                         <p>Forgot your password?</p>
                     </div>
-                    <Link href='/'>
-                        <button onClick={handleSubmit} className={styles.signInBtn}>
-                            Login
-                        </button>
-                    </Link>
+                    {/* <Link href=''> */}
+                    {buttonClickValid==true ? <Link href='/'><button className={styles.signInBtn} onClick={handleSubmit}>Login</button></Link> : <button className={styles.signInBtn} onClick={handleSubmit}>Login</button>}
+                    {/* </Link> */}
                     <div className={styles.signInLine}>
                         <hr />
                         <p>or</p>
