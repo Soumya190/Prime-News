@@ -8,14 +8,14 @@ import Link from "next/link";
 export const MainSection = ({ onSelect, setOnSelect }) => {
   const [data, setData] = useState([]);
   const [searchItem, setSearchItem] = useState("");
-  const [countPagination,setCountPagination]= useState(1);
+  const [countPagination, setCountPagination] = useState(1);
+  const [nextPage, setNextPage] = useState(null);
+  const [pageTokens, setPageTokens] = useState([null]);
 
   useEffect(() => {
-    const fetchData = async () => {
+    const fetchData = async (pageToken = null) => {
       try {
-        const res = await fetch(
-          `https://newsdata.io/api/1/latest?apikey=pub_3ff884d506af452b8feecd9368c91f84&category=${onSelect}&q=stocks&language=en&size=10`
-        );
+        const res = await fetch(`https://newsdata.io/api/1/latest?apikey=pub_3ff884d506af452b8feecd9368c91f84&category=${onSelect}&q=stocks&language=en&size=10`);
         const json = await res.json();
         console.log(json);
 
@@ -100,14 +100,14 @@ export const MainSection = ({ onSelect, setOnSelect }) => {
           </div>
         </div>
         <div className={styles.pagination}>
-          {countPagination!=1?(
-            <button className={styles.prev} onClick={()=>setCountPagination(prev=>prev-1)}>Prev</button>
-          ): 
-            <button className={styles.prev} disabled onClick={()=>setCountPagination(countPagination)}>Prev</button>}
+          {countPagination != 1 ? (
+            <button className={styles.prev} onClick={() => setCountPagination(prev => prev - 1)}>Prev</button>
+          ) :
+            <button className={styles.prev} disabled onClick={() => setCountPagination(countPagination)}>Prev</button>}
           <p>Page {countPagination} of 10</p>
-          {countPagination!=10?(
-            <button className={styles.next} onClick={()=>setCountPagination(countPagination=>countPagination+1)}>Next</button>
-          ):<button className={styles.next} disabled onClick={()=>setCountPagination(countPagination)}>Next</button>}
+          {countPagination != 10 ? (
+            <button className={styles.next} onClick={() => setCountPagination(countPagination => countPagination + 1)}>Next</button>
+          ) : <button className={styles.next} disabled onClick={() => setCountPagination(countPagination)}>Next</button>}
         </div>
       </div>
     </>

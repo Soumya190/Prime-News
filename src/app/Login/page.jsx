@@ -5,44 +5,79 @@ import styles from '@/Styles/Login/Login.module.scss'
 import Link from 'next/link'
 
 const Login = () => {
-    const [InputValue, setInputValue] = useState('');
+    const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [buttonClickValid,setButtonClickValid]=useState(false);
 
-    const handleSubmit = () => {
-        if (InputValue === "" || InputValue === null) {
-            alert("Please enter your email or username");
-            return;
+    const emailVerification = () => {
+        if (email.length > 0 && email !== null && email !== "") {
+            const trimmedEmail = email.trim();
+            const lowerCaseEmail = email.toLowerCase();
+            const includesAt = email.includes('@' && '.com' && 'gmail' || 'io' || 'net' || 'org');
+            // const validEmail = email.trim(' ').toLowerCase().includes('@'&&'.com'&&'gmail'||'io'||'net'||'org');
+            if (trimmedEmail && lowerCaseEmail && includesAt) {
+                const varifyEmail = email.match('^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$|\\.com|\\.io|\\.net|\\.org');
+                if (varifyEmail) {
+                    console.log(email);
+
+                }
+                else {
+                    alert("Please enter a valid email address");
+                }
+            }
+            else {
+                alert("Please enter a valid email address");
+            }
+
+            // .match('^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$')
+
         }
-        if (password !== "" && password !== null) {
-            if (password.length > 8) {
-                if (password !== "@" || password !== "#" || password !== "$" || password !== "%" || password !== "&" || password !== "*") {
-                    alert("Password must contain at least one special character");
-                    return;
+        else {
+            alert("Please enter your email");
+        }
+    }
+
+    const passwordVerification=()=>{
+        if (password.length > 0 && password !== null && password !== "") {
+            // password.match('^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$')&& password.match('[@#\$%\^&\*\(\)_\-\+=]')&& 
+            if (password.length >= 8) {
+                // const validPassword = password.match('[0-9]');
+                const verifyNumber = password.match('[0-9]');
+                const verifyUppercase = password.match('[A-Z]');
+                const verifyLowercase = password.match('[a-z]');
+                const verifySpecialChar = password.match('[@#\$%\^&\*\]');
+                if (verifyNumber && verifyUppercase && verifyLowercase && verifySpecialChar) {
+                    console.log(password);
                 }
-                else if (password === password.toLowerCase()) {
+                else if (!verifyNumber) {
+                    alert("Password must contain at least one number");
+                }
+                else if (!verifyUppercase) {
                     alert("Password must contain at least one uppercase letter");
-                    return;
                 }
-                else if (password == password.toUpperCase()) {
+                else if (!verifyLowercase) {
                     alert("Password must contain at least one lowercase letter");
-                    return;
                 }
-                else if (password == "1234567890" || password == "password" || password == "qwerty" || password == "admin") {
-                    alert("Password is too common, please choose a stronger password");
-                    return;
+                else {
+                    alert("Password must contain at least one special character");
                 }
+
             }
             else {
                 alert("Password must be at least 8 characters long");
             }
         }
-
         else {
             alert("Please enter your password");
-            return;
         }
-        // console.log("button clicked");
+    }
 
+
+    const handleSubmit = (emailVerification,passwordVerification) => {
+
+        if(emailVerification&&passwordVerification){
+            setButtonClickValid(true);
+        }
     }
 
     return (
@@ -61,7 +96,7 @@ const Login = () => {
                     <div className={styles.inputContainer1}>
                         <label >Email</label>
                         <div className={styles.inputBox1}>
-                            <input type="text" placeholder='Enter your email' value={InputValue} onChange={(e) => setInputValue(e.target.value)} />
+                            <input type="email" placeholder='name@example.com' value={email} onChange={(e) => setEmail(e.target.value)} />
                             {/* <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><path d="M320 312C386.3 312 440 258.3 440 192C440 125.7 386.3 72 320 72C253.7 72 200 125.7 200 192C200 258.3 253.7 312 320 312zM290.3 368C191.8 368 112 447.8 112 546.3C112 562.7 125.3 576 141.7 576L498.3 576C514.7 576 528 562.7 528 546.3C528 447.8 448.2 368 349.7 368L290.3 368z" /></svg> */}
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><path d="M112 128C85.5 128 64 149.5 64 176C64 191.1 71.1 205.3 83.2 214.4L291.2 370.4C308.3 383.2 331.7 383.2 348.8 370.4L556.8 214.4C568.9 205.3 576 191.1 576 176C576 149.5 554.5 128 528 128L112 128zM64 260L64 448C64 483.3 92.7 512 128 512L512 512C547.3 512 576 483.3 576 448L576 260L377.6 408.8C343.5 434.4 296.5 434.4 262.4 408.8L64 260z" /></svg>
                         </div>
@@ -80,7 +115,7 @@ const Login = () => {
                         </div>
                         <p>Forgot your password?</p>
                     </div>
-                    <Link href="" >
+                    <Link href='/'>
                         <button onClick={handleSubmit} className={styles.signInBtn}>
                             Login
                         </button>
