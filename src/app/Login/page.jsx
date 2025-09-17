@@ -7,6 +7,8 @@ import Link from 'next/link'
 const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [ispasswordValid, setIsPasswordValid] = useState(false);
+    const [isemailValid, setIsEmailValid] = useState(false);
     const [buttonClickValid, setButtonClickValid] = useState(false);
 
     const emailVerification = () => {
@@ -18,7 +20,8 @@ const Login = () => {
             if (trimmedEmail && lowerCaseEmail && includesAt) {
                 const varifyEmail = email.match('^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$|\\.com|\\.io|\\.net|\\.org');
                 if (varifyEmail) {
-                    console.log(email);
+                    setEmail(email);
+                    setIsEmailValid(true);
 
                 }
                 else {
@@ -36,7 +39,6 @@ const Login = () => {
             alert("Please enter your email");
         }
 
-        setEmail(email);
     }
 
     const passwordVerification = () => {
@@ -49,7 +51,9 @@ const Login = () => {
                 const verifyLowercase = password.match('[a-z]');
                 const verifySpecialChar = password.match('[@#\$%\^&\*\]');
                 if (verifyNumber && verifyUppercase && verifyLowercase && verifySpecialChar) {
-                    console.log(password);
+                    setPassword(password);
+                    // console.log(password);
+                    setIsPasswordValid(true);
                 }
                 else if (!verifyNumber) {
                     alert("Password must contain at least one number");
@@ -72,20 +76,25 @@ const Login = () => {
         else {
             alert("Please enter your password");
         }
-        setPassword(password);
     }
+
+    // passwordVerification();
+
+
+    // console.log(buttonClickValid);
 
 
     const handleSubmit = () => {
-        emailVerification();
-        passwordVerification();
-        // console.log(password);        
-        if(emailVerification() && passwordVerification()){
-            setButtonClickValid(true);
-            console.log(buttonClickValid);
+        if (email.length > 0 && password.length > 0) {
+            emailVerification();
+            passwordVerification();
+            if (isemailValid === true && ispasswordValid === true) {
+                setButtonClickValid(true);
+                // console.log(buttonClickValid);
+            }
         }
     }
-    
+
 
     return (
         <div className={styles.loginmainContainer}>
@@ -123,7 +132,9 @@ const Login = () => {
                         <p>Forgot your password?</p>
                     </div>
                     {/* <Link href=''> */}
-                    {buttonClickValid==true ? <Link href='/'><button className={styles.signInBtn} onClick={handleSubmit}>Login</button></Link> : <button className={styles.signInBtn} onClick={handleSubmit}>Login</button>}
+                    {/* {buttonClickValid===true ? <Link href='/'><button className={styles.signInBtn} onClick={handleSubmit}>Login</button></Link> : <button className={styles.signInBtn}>Login</button>} */}
+                    {/* <button className={styles.signInBtn} onClick={handleSubmit}>Login</button> */}
+                    {buttonClickValid === true ? <Link href='/'><button className={styles.signInBtn} onClick={handleSubmit}>Login</button></Link> : <button className={styles.signInBtn} onClick={handleSubmit}>Login</button>}
                     {/* </Link> */}
                     <div className={styles.signInLine}>
                         <hr />
