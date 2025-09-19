@@ -5,11 +5,95 @@ import styles from '@/Styles/SignUp/signup.module.scss'
 import Link from 'next/link';
 
 const Signup = () => {
+    const [email, setEmail] = useState('');
+        const [password, setPassword] = useState('');
+        const [ispasswordValid, setIsPasswordValid] = useState(false);
+        const [isemailValid, setIsEmailValid] = useState(false);
+        const [buttonClickValid, setButtonClickValid] = useState(false);
+
     const [user,setUser]=useState({
         username:"",
         email:"",
         password:"",
     })
+
+    const emailVerification = () => {
+        if (email.length > 0 && email !== null && email !== "") {
+            const trimmedEmail = email.trim();
+            const lowerCaseEmail = email.toLowerCase();
+            const includesAt = email.includes('@' && '.com' && 'gmail' || 'io' || 'net' || 'org');
+            // const validEmail = email.trim(' ').toLowerCase().includes('@'&&'.com'&&'gmail'||'io'||'net'||'org');
+            if (trimmedEmail && lowerCaseEmail && includesAt) {
+                const varifyEmail = email.match('^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$|\\.com|\\.io|\\.net|\\.org');
+                if (varifyEmail) {
+                    setEmail(email);
+                    setIsEmailValid(true);
+
+                }
+                else {
+                    alert("Please enter a valid email address");
+                }
+            }
+            else {
+                alert("Please enter a valid email address");
+            }
+
+            // .match('^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$')
+
+        }
+        else {
+            alert("Please enter your email");
+        }
+
+    }
+
+    const passwordVerification = () => {
+        if (password.length > 0 && password !== null && password !== "") {
+            // password.match('^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$')&& password.match('[@#\$%\^&\*\(\)_\-\+=]')&& 
+            if (password.length >= 8) {
+                // const validPassword = password.match('[0-9]');
+                const verifyNumber = password.match('[0-9]');
+                const verifyUppercase = password.match('[A-Z]');
+                const verifyLowercase = password.match('[a-z]');
+                const verifySpecialChar = password.match('[@#\$%\^&\*\]');
+                if (verifyNumber && verifyUppercase && verifyLowercase && verifySpecialChar) {
+                    setPassword(password);
+                    // console.log(password);
+                    setIsPasswordValid(true);
+                }
+                else if (!verifyNumber) {
+                    alert("Password must contain at least one number");
+                }
+                else if (!verifyUppercase) {
+                    alert("Password must contain at least one uppercase letter");
+                }
+                else if (!verifyLowercase) {
+                    alert("Password must contain at least one lowercase letter");
+                }
+                else {
+                    alert("Password must contain at least one special character");
+                }
+
+            }
+            else {
+                alert("Password must be at least 8 characters long");
+            }
+        }
+        else {
+            alert("Please enter your password");
+        }
+    }
+
+    const handleSubmit = () => {
+        if (email.length > 0 && password.length > 0) {
+            emailVerification();
+            passwordVerification();
+            if (isemailValid === true && ispasswordValid === true) {
+                setButtonClickValid(true);
+                // console.log(buttonClickValid);
+            }
+        }
+    }
     
     const handleUser=(e)=>{
         const {name,value}= e.target;
@@ -60,11 +144,11 @@ const Signup = () => {
                             </div>
                             <p>Forgot your password?</p>
                         </div>
-                        <Link href="" >
-                            <button  className={styles.signInBtn}>
+                        {/* <Link href="" > */}
+                            <button  className={styles.signInBtn} onClick={handleSubmit}>
                                 Sign up
                             </button>
-                        </Link>
+                        {/* </Link> */}
                         <div className={styles.signInLine}>
                             <hr />
                             <p>or</p>

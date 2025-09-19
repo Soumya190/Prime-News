@@ -9,13 +9,18 @@ export const MainSection = ({ onSelect, setOnSelect }) => {
   const [data, setData] = useState([]);
   const [searchItem, setSearchItem] = useState("");
   const [countPagination, setCountPagination] = useState(1);
+  const [trendingNews, setTrendingNews] = useState([]);
   const [nextPage, setNextPage] = useState(null);
   const [pageTokens, setPageTokens] = useState([null]);
 
   useEffect(() => {
-    const fetchData = async (pageToken = null) => {
+    const fetchData = async () => {
       try {
         const res = await fetch(`https://newsdata.io/api/1/latest?apikey=pub_3ff884d506af452b8feecd9368c91f84&category=${onSelect}&q=stocks&language=en&size=10`);
+        const trendingNewsRes = await fetch(`https://newsdata.io/api/1/latest?apikey=pub_3ff884d506af452b8feecd9368c91f84&q=trending%20news&language=en&size=1`);
+        const trendingNewsJson = await trendingNewsRes.json();
+        console.log(trendingNewsJson);
+        setTrendingNews(trendingNewsJson.results);
         const json = await res.json();
         console.log(json);
 
@@ -69,19 +74,33 @@ export const MainSection = ({ onSelect, setOnSelect }) => {
                 <button>Login</button>
               </Link>
             </div>
-            <p>INDIA</p>
-            <p>INDIA</p>
-            <p>INDIA</p>
-            <p>INDIA</p>
-            <p>INDIA</p>
-            <p>INDIA</p>
-            <p>INDIA</p>
-            <p>INDIA</p>
-            <p>INDIA</p>
-            <p>INDIA</p>
-            <p>INDIA</p>
-            <p>SOUTH</p>
-            <p>TV</p>
+            <div className={styles.trendingNews}>
+              {trendingNews.map((item, index) => (
+                <div key={index} className={styles.trendingCard}>
+                  <div className={styles.trendingNewsImageDiv}>
+                    <img src={item.image_url} alt="news_img" />
+                  </div>
+                  <div className={styles.trendingNewsDetails}>
+                    <h1>{item.title}</h1>
+                    <p>{item.description}</p>
+                    <button>Show more</button>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <button className={styles.language1}>Assamese</button>
+            <button className={styles.language2}>Bengali</button>
+            <button className={styles.language3}>Gujarati</button>
+            <button className={styles.language4}>Hindi</button>
+            <button className={styles.language5}>Kannada</button>
+            <button className={styles.language6}>Malayalam</button>
+            <button className={styles.language7}>Marathi</button>
+            <button className={styles.language8}>Oriya</button>
+            <button className={styles.language9}>Punjabi</button>
+            <button className={styles.language10}>Tamil</button>
+            <button className={styles.language11}>Telugu</button>
+            <button className={styles.language12}>Urdu</button>
+            {/* <p>TV</p> */}
           </div>
           <div className={styles.mainContent}>
             <div className={styles.content}>
@@ -90,6 +109,9 @@ export const MainSection = ({ onSelect, setOnSelect }) => {
                   <div className={styles.news}>
                     <h1>{item.title}</h1>
                     <p>{item.description}</p>
+                    <Link href={item.link} >
+                    <p className={styles.itemDetails}>Show more</p>
+                    </Link>
                   </div>
                   <div className={styles.imageDiv}>
                     <img src={item.image_url} alt="news_img" />

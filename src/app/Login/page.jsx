@@ -21,6 +21,8 @@ const Login = () => {
                 const varifyEmail = email.match('^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$|\\.com|\\.io|\\.net|\\.org');
                 if (varifyEmail) {
                     setEmail(email);
+                    console.log(email);
+                    
                     setIsEmailValid(true);
 
                 }
@@ -52,7 +54,7 @@ const Login = () => {
                 const verifySpecialChar = password.match('[@#\$%\^&\*\]');
                 if (verifyNumber && verifyUppercase && verifyLowercase && verifySpecialChar) {
                     setPassword(password);
-                    // console.log(password);
+                    console.log(password);
                     setIsPasswordValid(true);
                 }
                 else if (!verifyNumber) {
