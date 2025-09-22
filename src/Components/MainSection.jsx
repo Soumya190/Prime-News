@@ -9,7 +9,11 @@ export const MainSection = ({ onSelect, setOnSelect }) => {
   const [data, setData] = useState([]);
   const [searchItem, setSearchItem] = useState("");
   const [countPagination, setCountPagination] = useState(1);
+  const [historiNews,setHistoricNews] = useState([]);
   const [trendingNews, setTrendingNews] = useState([]);
+  const [techNews,setTechNews] = useState([]);
+  const [hotNews,setHotNews] = useState([]);
+  const [cryptoNews,setCryptoNews] = useState([]);
   const [nextPage, setNextPage] = useState(null);
   const [pageTokens, setPageTokens] = useState([null]);
 
@@ -18,34 +22,60 @@ export const MainSection = ({ onSelect, setOnSelect }) => {
       try {
         const res = await fetch(`https://newsdata.io/api/1/latest?apikey=pub_3ff884d506af452b8feecd9368c91f84&category=${onSelect}&q=stocks&language=en&size=10`);
         const trendingNewsRes = await fetch(`https://newsdata.io/api/1/latest?apikey=pub_3ff884d506af452b8feecd9368c91f84&q=trending%20news&language=en&size=1`);
+        const historicNewsRes = await fetch(`https://newsdata.io/api/1/latest?apikey=pub_3ff884d506af452b8feecd9368c91f84&q=historic%20news&size=1&language=en`);
+        const hotNewsRes = await fetch(`https://newsdata.io/api/1/latest?apikey=pub_3ff884d506af452b8feecd9368c91f84&q=hot%20news&size=1&language=en`);
+        const techNewsRes = await fetch(`https://newsdata.io/api/1/latest?apikey=pub_3ff884d506af452b8feecd9368c91f84&q=tech%20news&size=1&language=en`);
+        const cryptoNewsRes = await fetch(`https://newsdata.io/api/1/latest?apikey=pub_3ff884d506af452b8feecd9368c91f84&q=crypto%20news&language=en&size=1`)
+        const techNewsJson = await techNewsRes.json(); 
+        const cryptoNewsJson = await cryptoNewsRes.json();
+        const hotNewsJson = await hotNewsRes.json();
         const trendingNewsJson = await trendingNewsRes.json();
+        const data = await res.json();
+        const historicNewsJson = await historicNewsRes.json();
+        console.log(hotNewsJson);
+        console.log(techNewsJson);
         console.log(trendingNewsJson);
+        console.log(cryptoNewsJson);
+        console.log(data);
+        
+        console.log(historicNewsJson);
+        
         setTrendingNews(trendingNewsJson.results);
-        const json = await res.json();
-        console.log(json);
+        setCryptoNews(cryptoNewsJson.results);
+        setHistoricNews(historicNewsJson.results);
+        setHotNews(hotNewsJson.results);
+        setTechNews(techNewsJson.results);
+        setData(data.results);
+
+        if(data.results<11){
+          console.log("The length is equal to 10");
+        }
+        else{
+          console.log("The length is smaller than 10");
+          
+        }
 
 
         let seenArticle = new Set();
         let filteredNews = [];
 
-        json.results.forEach((article) => {
-          const titleKey = article.title && article.description && article.image_url?.trim().toLowerCase();
+        // data.results.forEach((article) => {
+        //   const titleKey = article.title && article.description && article.image_url?.trim().toLowerCase();
 
-          if (
-            Array.isArray(article.keywords) &&
-            article.keywords.length > 0 &&
-            typeof article.keywords[0] === "string" &&
-            article.keywords[0].trim() !== "" &&
-            article.keywords[0] !== "undefined"
-          ) {
-            if (!seenArticle.has(titleKey)) {
-              seenArticle.add(titleKey);
-              filteredNews.push(article);
-            }
-          }
-        });
+        //   if (
+        //     Array.isArray(article.keywords) &&
+        //     article.keywords.length > 0 &&
+        //     typeof article.keywords[0] === "string" &&
+        //     article.keywords[0].trim() !== "" &&
+        //     article.keywords[0] !== "undefined"
+        //   ) {
+        //     // if (!seenArticle.has(titleKey)) {
+        //     //   seenArticle.add(titleKey);
+        //     //   filteredNews.push(article);
+        //     // }
+        //   }
+        // });
 
-        setData(filteredNews);
       } catch (err) {
         console.error("Error fetching data:", err);
       }
@@ -54,11 +84,11 @@ export const MainSection = ({ onSelect, setOnSelect }) => {
     fetchData();
   }, [onSelect]);
 
-  const filteredData = data.filter((item) =>
-    item.keywords?.some((cat) =>
-      cat.toLowerCase().includes(searchItem.toLowerCase())
-    )
-  );
+  // const filteredData = data.filter((item) =>
+  //   item.keywords?.some((cat) =>
+  //     cat.toLowerCase().includes(searchItem.toLowerCase())
+  //   )
+  // );
 
   return (
     <>
@@ -75,6 +105,7 @@ export const MainSection = ({ onSelect, setOnSelect }) => {
               </Link>
             </div>
             <div className={styles.trendingNews}>
+              <h1>Trending News</h1>
               {trendingNews.map((item, index) => (
                 <div key={index} className={styles.trendingCard}>
                   <div className={styles.trendingNewsImageDiv}>
@@ -83,12 +114,78 @@ export const MainSection = ({ onSelect, setOnSelect }) => {
                   <div className={styles.trendingNewsDetails}>
                     <h1>{item.title}</h1>
                     <p>{item.description}</p>
-                    <button>Show more</button>
+                    <Link className={styles.block_level} href={item.link}><button>Show more</button></Link>
                   </div>
                 </div>
               ))}
             </div>
-            <button className={styles.language1}>Assamese</button>
+
+            <div className={styles.historicNews}>
+              <h1>Historic News</h1>
+              {historiNews.map((item, index) => (
+                <div key={index} className={styles.historicCard}>
+                  <div className={styles.historicNewsImageDiv}>
+                    <img src={item.image_url} alt="news_img" />
+                  </div>
+                  <div className={styles.historicNewsDetails}>
+                    <h1>{item.title}</h1>
+                    <p>{item.description}</p>
+                    <Link className={styles.block_level} href={item.link}><button>Show more</button></Link>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div className={styles.hotNews}>
+              <h1>Hot News</h1>
+              {hotNews.map((item, index) => (
+                <div key={index} className={styles.hotCard}>
+                  <div className={styles.hotNewsImageDiv}>
+                    <img src={item.image_url} alt="news_img" />
+                  </div>
+                  <div className={styles.hotNewsDetails}>
+                    <h1>{item.title}</h1>
+                    <p>{item.description}</p>
+                    <Link className={styles.block_level} href={item.link}><button>Show more</button></Link>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div className={styles.techNews}>
+              <h1>Tech News</h1>
+              {techNews.map((item, index) => (
+                <div key={index} className={styles.techCard}>
+                  <div className={styles.techNewsImageDiv}>
+                    <img src={item.image_url} alt="news_img" />
+                  </div>
+                  <div className={styles.techNewsDetails}>
+                    <h1>{item.title}</h1>
+                    <p>{item.description}</p>
+                    <Link className={styles.block_level} href={item.link}><button>Show more</button></Link>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div className={styles.cryptoNews}>
+              <h1>Crypto News</h1>
+              {cryptoNews.map((item, index) => (
+                <div key={index} className={styles.cryptoCard}>
+                  <div className={styles.cryptoNewsImageDiv}>
+                    <img src={item.image_url} alt="news_img" />
+                  </div>
+                  <div className={styles.cryptoNewsDetails}>
+                    <h1>{item.title}</h1>
+                    <p>{item.description}</p>
+                    <Link className={styles.block_level} href={item.link}><button>Show more</button></Link>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            
+            {/* <button className={styles.language1}>Assamese</button>
             <button className={styles.language2}>Bengali</button>
             <button className={styles.language3}>Gujarati</button>
             <button className={styles.language4}>Hindi</button>
@@ -99,12 +196,12 @@ export const MainSection = ({ onSelect, setOnSelect }) => {
             <button className={styles.language9}>Punjabi</button>
             <button className={styles.language10}>Tamil</button>
             <button className={styles.language11}>Telugu</button>
-            <button className={styles.language12}>Urdu</button>
+            <button className={styles.language12}>Urdu</button> */}
             {/* <p>TV</p> */}
           </div>
           <div className={styles.mainContent}>
             <div className={styles.content}>
-              {filteredData.map((item, index) => (
+              {data.map((item, index) => (
                 <div key={index} className={styles.card}>
                   <div className={styles.news}>
                     <h1>{item.title}</h1>

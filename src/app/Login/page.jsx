@@ -14,8 +14,9 @@ const Login = () => {
     const emailVerification = () => {
         if (email.length > 0 && email !== null && email !== "") {
             const trimmedEmail = email.trim();
-            const lowerCaseEmail = email.toLowerCase();
             const includesAt = email.includes('@' && '.com' && 'gmail' || 'io' || 'net' || 'org');
+            // const lowerCaseIncludes = includesAt.toLowerCase();
+            const lowerCaseEmail = email.toLowerCase();
             // const validEmail = email.trim(' ').toLowerCase().includes('@'&&'.com'&&'gmail'||'io'||'net'||'org');
             if (trimmedEmail && lowerCaseEmail && includesAt) {
                 const varifyEmail = email.match('^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$|\\.com|\\.io|\\.net|\\.org');
@@ -39,8 +40,9 @@ const Login = () => {
         }
         else {
             alert("Please enter your email");
+            // console.log("Please enter your email");
+            
         }
-
     }
 
     const passwordVerification = () => {
@@ -87,14 +89,14 @@ const Login = () => {
 
 
     const handleSubmit = () => {
-        if (email.length > 0 && password.length > 0) {
+        // if (email.length > 0 && password.length > 0) {
             emailVerification();
             passwordVerification();
             if (isemailValid === true && ispasswordValid === true) {
                 setButtonClickValid(true);
                 // console.log(buttonClickValid);
             }
-        }
+        // }
     }
 
 

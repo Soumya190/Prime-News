@@ -5,7 +5,8 @@ import styles from "@/Styles/Header/header.module.scss";
 import Link from 'next/link';
 import { MainSection } from '../MainSection';
 
-export const Header = ({ searchItem, setSearchItem,onSelect,setOnSelect }) => {
+export const Header = ({ searchItem, setSearchItem, onSelect, setOnSelect }) => {
+
   return (
     <div className={styles.mainContainer}>
       {/* <div className={styles.logo}>
@@ -48,6 +49,7 @@ export const Header = ({ searchItem, setSearchItem,onSelect,setOnSelect }) => {
         </Link>
       </div> */}
       <div className={styles.searchBar}>
+        <svg xmlns="http://www.w3.org/2000/svg" className={styles.hamburgerIcon} viewBox="0 0 640 640"><path fill="#000000" d="M96 160C96 142.3 110.3 128 128 128L512 128C529.7 128 544 142.3 544 160C544 177.7 529.7 192 512 192L128 192C110.3 192 96 177.7 96 160zM96 320C96 302.3 110.3 288 128 288L512 288C529.7 288 544 302.3 544 320C544 337.7 529.7 352 512 352L128 352C110.3 352 96 337.7 96 320zM544 480C544 497.7 529.7 512 512 512L128 512C110.3 512 96 497.7 96 480C96 462.3 110.3 448 128 448L512 448C529.7 448 544 462.3 544 480z" /></svg>
         <h1>PRIME NEWS</h1>
         <div className={styles.searchInput}>
           <div className={styles.searchIcon}>
@@ -61,7 +63,7 @@ export const Header = ({ searchItem, setSearchItem,onSelect,setOnSelect }) => {
               onChange={(e) => setSearchItem(e.target.value)}
             />
           </div>
-          <select value={onSelect} onChange={(e)=>setOnSelect(e.target.value)}>
+          <select value={onSelect} onChange={(e) => setOnSelect(e.target.value)}>
             <option value="business">Business</option>
             <option value="entertainment" >Entertainment</option>
             <option value="Sports">Sports</option>
