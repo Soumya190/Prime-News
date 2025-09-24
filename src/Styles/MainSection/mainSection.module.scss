@@ -575,13 +575,22 @@
                         // height: auto;
 
                         .itemDetails {
-                            height: 1.3vw;
-                            width: 5vw;
-                            font-size: 1vw;
-                            // background-color: black;
-                            color: black;
-                            border-radius: 0.5vw;
-                        }
+                                // height: 5vw;
+                                padding: 0.7vw 0.8vw;
+                                width: 5vw;
+                                font-size: 1vw;
+                                background-color: black;
+                                margin-left: 0.7vw;
+                                color: white;
+                                border-radius: 0.5vw;
+                                font-weight: 500;
+                                text-align: center;
+                                // order: 4;
+                                text-decoration-color: black;
+                                text-decoration-line: underline;
+                                // text-decoration: none;
+                                // order: 3;
+                            }
 
                         p {
                             text-decoration: none;
@@ -664,12 +673,12 @@
 
     .mainContainer {
         display: grid;
-        background-color: green;
+        // background-color: green;
         gap: 2vw;
 
         .Container {
             display: grid;
-            background-color: pink;
+            // background-color: pink;
 
             .sidebar {
                 display: none;
@@ -679,14 +688,15 @@
                 height: 100%;
                 width: inherit;
                 display: grid;
-                place-content: center;
-                align-items: center;
+                // place-content: center;
+                // align-items: center;
                 // height: auto;
 
                 .content {
-                    padding: 7vw;
+                    padding: 10vw;
                     width: inherit;
                     display: grid;
+                    gap: 6vw;
                     justify-content: center;
                     align-items: center;
                     // background-color: red;
@@ -696,12 +706,12 @@
 
                     .card {
                         display: grid;
-                        height: 80vw;
+                        place-content: center;
+                        align-items: center;
+                        height: auto;
                         padding: 0;
                         margin: 0;
-                        width: 80%;
-                        // place-content: center;
-                        // align-items: center;
+                        // width: 80%;
                         border-radius: 0.5vw;
                         background-color: white;
 
@@ -709,20 +719,26 @@
                             display: flex;
                             flex-direction: column;
                             padding: 1vw;
+                            padding-left: 5vw;
                             width: 80%;
                             order: 2;
                             // background-color: red;
                             // height: auto;
 
                             .itemDetails {
-                                height: 5vw;
+                                // height: 5vw;
                                 width: 20vw;
                                 font-size: 3vw;
-                                // background-color: black;
-                                color: black;
-                                border-radius: 0.5vw;
+                                padding:2vw 1vw;
+                                background-color: black;
+                                color: white;
+                                border-radius: 0.9vw;
+                                font-weight: 500;
+                                text-align: center;
                                 // order: 4;
-                                text-decoration: none;
+                                text-decoration-color: black;
+                                text-decoration-line: underline;
+                                // text-decoration: none;
                                 // order: 3;
                             }
 
@@ -734,12 +750,14 @@
                             h1 {
                                 padding: 1vw;
                                 font-size: 5vw;
+                                align-items: center;
                                 // order: 2;
 
                             }
 
                             p {
                                 padding: 1vw;
+                                align-items: center;
                                 display: -webkit-box;
                                 -webkit-line-clamp: 2;
                                 line-clamp: 2;
@@ -798,6 +816,30 @@
                         }
                     }
                 }
+            }
+        }
+
+        .pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 1vw;
+            gap: 2vw;
+
+            .prev {
+                height: 8vw;
+                width: 13vw;
+                font-size: 1w;
+            }
+
+            p{
+                font-size: 3vw;
+            }
+
+            .next {
+                height: 8vw;
+                width: 13vw;
+                font-size: 1w;
             }
         }
     }
