@@ -140,7 +140,7 @@
 
             .searchBar {
                 display: flex;
-                position: statics;
+                // position: static;
                 // width: 100%;
                 justify-content: space-around;
                 align-items: center;
@@ -158,6 +158,142 @@
                     display: block;
                     height: 3.5vw;
                     width: 3.5vw;
+                }
+
+                .hamburgerContainer{
+                    position: fixed;
+                    top:15vw;
+                    left:10;
+                    bottom: 50%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    height: 65%;
+                    width: 80%;
+                    background-color:white ;
+                    color:black;
+                    flex-direction: column;
+                    // padding: 1vw;
+
+                    .close_menu{
+                        font-size: 6vw;
+                        font-weight: 600;
+                        // background-color: red;
+                        position: absolute;
+                        left:2vw;
+                        top: 0;
+                    }
+
+                    .hamburgerContent{
+                        display: grid;
+                        gap:2vw;
+                        place-content: center;
+                        align-items: center;
+                        // background-color: green;
+                        height: 100%;
+                        width: 90%;
+                        
+
+                        .signin{
+                            // height: 8vw;
+                            // width: 30vw;
+                            padding: 2.5vw;
+                            background-color: #f5f4f4;
+                            // background-color: yellow;
+                            justify-content: center;
+                            align-items: center;
+                            border-radius: 0.5vw;
+                            display: flex;
+                            gap:2vw;
+
+                            .icon{
+                                height: 7vw;
+                                width: 7vw;
+                                background-color: #bebcbc;
+                                border-radius: 50%;
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+
+                                svg{
+                                    height: 3vw;
+                                    width: 3vw;
+                                }
+                            }
+
+                            button{
+                                // height: 5vw;
+                                // width: 15vw;
+                                padding: 1.5vw 3.5vw;
+                                border-radius:4vw;
+                                border-width: 0.1vw;
+                                font-size: 3.3vw;
+                            }
+                            
+                        }
+
+                        .hamburger{
+                            display: grid;
+                            place-content: center;
+                            align-items: center;
+                            height: 110vw;
+                            gap:2vw;
+                            background-color: #f5f4f4;
+                            width: 60vw;
+                            padding: 2vw;
+                           
+                            .hotNews{
+                                display: flex;
+                                justify-content: center;
+                                align-content: center;
+                                height: 8vw;
+                                // width: 100%;
+                                // padding: 2.5vw;
+                                // width: inherit;
+                                background-color: white;
+                                // height: auto;
+                                // background-color: red;
+                                gap:2vw;
+
+                                .hotIcon{
+                                    display: flex;
+                                    justify-content: center;
+                                    align-items: center;
+                                }
+
+                                svg{
+                                    height: 3.7vw;
+                                    width: 3.7vw;
+                                }
+
+                                p{
+                                    font-size: 3.5vw;
+                                    padding: 0;
+                                    margin: 0;
+                                    text-align: center;
+                                }
+                            }
+
+                            .hindiNews,.Malayalam,.Bengali,.Telugu,.Marathi,.Tamil,.Kannada,.Punjabi,.Urdu,.Oriya,.Assamese{
+                                // width: inherit;
+                                background-color: white;
+                                // height: auto;
+                                // padding: 2.4vw;
+                                height: 7vw;
+                                width: 55vw;
+                                display: flex;
+                                font-size: 1.2vw;
+                                justify-content: center;
+                                align-items: center;
+
+                                p{
+                                    font-size: 3.5vw;
+                                    margin: 0;
+                                    padding: 0;
+                                }
+                            }
+                        }
+                    }
                 }
 
                 .searchInput {
@@ -215,7 +351,6 @@
                         }
                     }
                 }
-
             }
         }
     }

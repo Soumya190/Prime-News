@@ -678,6 +678,7 @@
 
         .Container {
             display: grid;
+            width: auto;
             // background-color: pink;
 
             .sidebar {
@@ -823,6 +824,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            // width: 10vw;
             padding: 1vw;
             gap: 2vw;
 
