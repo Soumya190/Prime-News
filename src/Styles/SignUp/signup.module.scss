@@ -331,3 +331,319 @@
         }
     }
 }
+
+@media (max-width:700px) {
+    .loginmainContainer {
+        display: grid;
+        height: 50vh;
+        width: 100vw;
+        // background-color: red;
+
+        .backBtn {
+            height: 10vw;
+            width: 10vw;
+            margin: 1vw;
+            cursor: pointer;
+            margin-bottom: 1rem;
+            border: none;
+            // background-color: pink;
+
+            svg {
+                height: 5vw;
+                width: 5vw;
+                fill: #555;
+            }
+        }
+
+        .signInContainer {
+            display: grid;
+            height: 50vh;
+            // padding: 3vw;
+            // gap: 0.7vw;
+            margin-top: 15vw;
+            // place-content: center;
+            // align-items: center;
+            font-family: 'poppins', sans-serif;
+            // background-color: red;
+
+            .loginContent {
+                height: 65vh;
+                width: 85vw;
+                // padding: 3vw;
+                display: grid;
+                gap: 1vw;
+                place-content: center;
+                align-items: center;
+                // background-color: pink;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+
+            }
+
+
+            .signInHeader {
+                .heading {
+                    font-size: 1.7rem;
+                    font-weight: 600;
+                    margin-bottom: 1rem;
+                    text-align: center;
+                    color: black;
+                }
+
+                .para {
+                    font-size: 1rem;
+                    color: #555;
+                    text-wrap: nowrap;
+                    text-align: center;
+                    margin-bottom: 2rem;
+                }
+            }
+
+            .inputContainer1 {
+                display: grid;
+                place-content: center;
+                align-items: center;
+                height: 15vw;
+                gap:0vw;
+                width: 70vw;
+                // background-color: pink;
+
+                label {
+                    font-size: 0.8rem;
+                    margin-bottom: 0.5rem;
+                    color: black;
+                    position: relative;
+                    top:3vw;
+                    left:2vw;
+                    overflow-block: block;
+                }
+
+                .inputBox1 {
+                    display: flex;
+                    gap: 1vw;
+                    height: 10vw;
+                    width: 70vw;
+                    // background-color: pink;
+                    // border: 1px solid #ccc;
+                    border-radius: 3px;
+                    box-shadow: #dddcdc 1px 1px 1px 1px;
+
+                    input {
+                        // height: 2.5vw;
+                        width: 60vw;
+                        padding-left: 0.5vw;
+                        text-decoration: none;
+                        border: none;
+
+                        &:focus {
+                            outline: none;
+                            box-shadow: none;
+                        }
+                    }
+
+                    svg {
+                        height: 5vw;
+                        width: 5vw;
+                        margin: auto 0;
+                        margin-right: 0.5vw;
+                        fill: #555;
+                    }
+                }
+
+            }
+
+            .inputContainer2 {
+                display: grid;
+                place-content: center;
+                align-items: center;
+                height: 15vw;
+                width: 70vw;
+                // background-color: pink;
+
+                label {
+                    font-size: 0.8rem;
+                    margin-bottom: 0.5rem;
+                    color: black;
+                    position: relative;
+                    top:3vw;
+                    left:2vw;
+                    overflow-block: block;
+                }
+
+                .inputBox2 {
+                    display: flex;
+                    gap: 1vw;
+                    height: 10vw;
+                    width: 70vw;
+                    // background-color: pink;
+                    // border: 1px solid #ccc;
+                    border-radius: 3px;
+                    box-shadow: #dddcdc 1px 1px 1px;
+
+                    input {
+                        height: 10vw;
+                        width: 60vw;
+                        padding-left: 0.5vw;
+                        text-decoration: none;
+                        border: none;
+
+                        &:focus {
+                            outline: none;
+                            box-shadow: none;
+                        }
+                    }
+
+                    svg {
+                        height: 5vw;
+                        width: 5vw;
+                        margin: auto 0;
+                        margin-right: 0.5vw;
+                        fill: #555;
+                    }
+                }
+
+            }
+
+            .options {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                height: 15vw;
+                width: 70vw;
+                font-size: 0.8rem;
+                font-weight: 600;
+                color: #555;
+
+                .rememberMe {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 0.8vw;
+                }
+
+                .select {
+                    height: 1.2vw;
+                    width: 1.2vw;
+                    // border: 1px solid #555;
+                    box-shadow: #dddcdc 1px 1px 1px;
+                    border-radius: 2px;
+                    cursor: pointer;
+                }
+
+                p {
+                    color: black;
+                    cursor: pointer;
+                }
+            }
+
+            .signInBtn {
+                height: 10vw;
+                width: 70vw;
+                background-color: black;
+                color: white;
+                font-size: 1rem;
+                border-color: black;
+                border-style: solid;
+                font-weight: 500;
+            }
+
+            .signInLine {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 0.5vw;
+
+                hr {
+                    margin: 0;
+                    padding: 0;
+                    width: 100%;
+                    height: 0vw;
+                    color: #f7f5f5;
+                }
+
+                p {
+                    color: #646262;
+                }
+
+                // hr {
+                //     border: none;
+                //     border-top: 2px solid #333;
+                //     margin: 20px 0;
+                // }
+
+            }
+
+            .signInOptions {
+                display: flex;
+                gap: 4vw;
+                justify-content: center;
+                align-items: center;
+
+                .googleBtn {
+                    height: 10vw;
+                    width: 20vw;
+                    background-color: black;
+                    border: none;
+
+                    svg {
+                        height: 4vw;
+                        width:4vw;
+                        margin: auto 0;
+                        fill: white;
+                    }
+                }
+
+                .appleBtn {
+                    height: 10vw;
+                    width: 20vw;
+                    background-color: black;
+                    border: none;
+
+                    svg {
+                        height: 5vw;
+                        width: 5vw;
+                        margin: auto 0;
+                        fill: white;
+                    }
+                }
+
+                .microsoftBtn {
+                    height: 10vw;
+                    width: 20vw;
+                    background-color: black;
+                    border: none;
+
+                    svg {
+                        height: 4vw;
+                        width: 4vw;
+                        margin: auto 0;
+                        fill: white;
+                    }
+                }
+            }
+
+            .signupOption {
+                text-align: center;
+                margin-top: 1rem;
+                color: #555;
+
+                p {
+                    font-size: 0.9rem;
+                }
+
+                button {
+                    background: none;
+                    border: none;
+                    color: #474646;
+                    cursor: pointer;
+                    font-size: 0.9rem;
+                    padding: 0;
+                    margin-left: 0.3rem;
+
+                    &:hover {
+                        color: #313030;
+                    }
+                }
+            }
+        }
+    }
+}
