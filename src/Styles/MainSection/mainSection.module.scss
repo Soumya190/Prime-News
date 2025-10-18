@@ -17,18 +17,20 @@
         .sidebar {
             width: 25%;
             display: grid;
-            // place-content: center;
-
-            padding: 1vw;
+            // place-content: space-around;
+            // background-color: yellow;
+            // padding: 1vw;
             gap: 2vw;
-            height: 100%;
+            height:100%;
             box-shadow: #6c6a6a;
             margin-left: 2vw;
             box-shadow: 2vw;
 
             .sidebarContainer {
-                // height: 100%;
-                // background-color: black;
+                height: 5vw;
+                width: 20vw;
+                margin-top: 1vw;
+                background-color: #f8f6f6;
                 // background-color: #f8f6f6;
                 display: flex;
                 gap: 1vw;
@@ -67,465 +69,477 @@
                 }
             }
 
+            .newsContainer {
+                display: grid;
+                width: 20vw;
+                // background-color: red;
 
-            .trendingNews {
-                height: auto;
-
-                // background-color: #f8f6f6;
-
-                h1 {
-                    text-align: center;
-                }
-
-                .trendingCard {
+                .trendingNews {
                     height: auto;
-                    background-color: #f8f6f6;
-                    border-radius: 0.5vw;
-                    display: grid;
-                    gap: 1vw;
-                    place-content: center;
-                    align-items: center;
-                    // display: flex;
-                    // gap: 1vw;
+                    width: 20vw;
 
-                    .trendingNewsImageDiv {
-                        display: grid;
-                        // place-content: center;
-                        // background-color: pink;
-                        // align-items: center;
+                    // background-color: #f8f6f6;
 
-                        img {
-                            // height: 100%;
-                            width: 100%;
-                            aspect-ratio: 16 / 9;
-                            /* Classic widescreen ratio (e.g., 1920x1080) */
-                            object-fit: cover;
-                            /* This is crucial! It will crop the image to fit the ratio */
-                            border-radius: 0.2vw;
-                            image-rendering: crisp-edges;
-                            border-radius: 0.2vw;
-                        }
+                    h1 {
+                        text-align: center;
                     }
 
-                    .trendingNewsDetails {
+                    .trendingCard {
                         height: auto;
+                        background-color: #f8f6f6;
+                        border-radius: 0.5vw;
                         display: grid;
-                        // gap:0.5vw;
-                        padding: 1vw;
+                        gap: 1vw;
                         place-content: center;
                         align-items: center;
+                        // display: flex;
+                        // gap: 1vw;
 
-                        h1 {
-                            font-size: 1.3vw;
-                            text-align: center;
-                            font-weight: 600;
-                            margin: 0;
-                            padding: 0;
+                        .trendingNewsImageDiv {
+                            display: grid;
+                            // place-content: center;
+                            // background-color: pink;
+                            // align-items: center;
+
+                            img {
+                                // height: 100%;
+                                width: 100%;
+                                aspect-ratio: 16 / 9;
+                                /* Classic widescreen ratio (e.g., 1920x1080) */
+                                object-fit: cover;
+                                /* This is crucial! It will crop the image to fit the ratio */
+                                border-radius: 0.2vw;
+                                image-rendering: crisp-edges;
+                                border-radius: 0.2vw;
+                            }
                         }
 
-                        p {
+                        .trendingNewsDetails {
+                            height: auto;
+                            display: grid;
+                            // gap:0.5vw;
                             padding: 1vw;
-                            display: -webkit-box;
-                            -webkit-line-clamp: 2;
-                            line-clamp: 2;
-                            -webkit-box-orient: vertical;
-                            overflow: hidden;
-                            text-overflow: ellipsis;
-                            font-size: 1vw;
-                            text-align: center;
-                            // margin: 0;
-                            // padding: 0;
-                            line-height: 1.4em;
-                            max-height: calc(1.4em * 2)-0.6;
-                        }
+                            place-content: center;
+                            align-items: center;
 
-                        .block_level {
-                            display: block;
-                        }
+                            h1 {
+                                font-size: 1.3vw;
+                                text-align: center;
+                                font-weight: 600;
+                                margin: 0;
+                                padding: 0;
+                            }
 
-                        button {
-                            cursor: pointer;
-                            height: 2.5vw;
-                            width: 100%;
-                            border-radius: 0.4vw;
-                            background-color: black;
-                            color: white;
-                            border-color: black;
-                            font-size: 1vw;
-                            border-style: dashed;
-                            font-style: normal;
+                            p {
+                                padding: 1vw;
+                                display: -webkit-box;
+                                -webkit-line-clamp: 2;
+                                line-clamp: 2;
+                                -webkit-box-orient: vertical;
+                                overflow: hidden;
+                                text-overflow: ellipsis;
+                                font-size: 1vw;
+                                text-align: center;
+                                // margin: 0;
+                                // padding: 0;
+                                line-height: 1.4em;
+                                max-height: calc(1.4em * 2)-0.6;
+                            }
+
+                            .block_level {
+                                display: block;
+                            }
+
+                            button {
+                                cursor: pointer;
+                                height: 2.5vw;
+                                width: 100%;
+                                border-radius: 0.4vw;
+                                background-color: black;
+                                color: white;
+                                border-color: black;
+                                font-size: 1vw;
+                                border-style: dashed;
+                                font-style: normal;
+                            }
                         }
                     }
+
                 }
 
-            }
-
-            .cryptoNews {
-                height: auto;
-
-                // background-color: #f8f6f6;
-
-                h1 {
-                    text-align: center;
-                }
-
-                .cryptoCard {
+                .cryptoNews {
                     height: auto;
-                    background-color: #f8f6f6;
-                    border-radius: 0.5vw;
-                    display: grid;
-                    gap: 1vw;
-                    place-content: center;
-                    align-items: center;
-                    // display: flex;
-                    // gap: 1vw;
 
-                    .cryptoNewsImageDiv {
-                        display: grid;
-                        // place-content: center;
-                        // background-color: pink;
-                        // align-items: center;
+                    // background-color: #f8f6f6;
 
-                        img {
-                            // height: 100%;
-                            width: 100%;
-                            aspect-ratio: 16 / 9;
-                            /* Classic widescreen ratio (e.g., 1920x1080) */
-                            object-fit: cover;
-                            /* This is crucial! It will crop the image to fit the ratio */
-                            border-radius: 0.2vw;
-                            image-rendering: crisp-edges;
-                            border-radius: 0.2vw;
-                        }
+                    h1 {
+                        text-align: center;
                     }
 
-                    .cryptoNewsDetails {
+                    .cryptoCard {
                         height: auto;
+                        background-color: #f8f6f6;
+                        border-radius: 0.5vw;
                         display: grid;
-                        // gap:0.5vw;
-                        padding: 1vw;
+                        gap: 1vw;
                         place-content: center;
                         align-items: center;
+                        // display: flex;
+                        // gap: 1vw;
 
-                        h1 {
-                            font-size: 1.3vw;
-                            text-align: center;
-                            font-weight: 600;
-                            margin: 0;
-                            padding: 0;
+                        .cryptoNewsImageDiv {
+                            display: grid;
+                            // place-content: center;
+                            // background-color: pink;
+                            // align-items: center;
+
+                            img {
+                                // height: 100%;
+                                width: 100%;
+                                aspect-ratio: 16 / 9;
+                                /* Classic widescreen ratio (e.g., 1920x1080) */
+                                object-fit: cover;
+                                /* This is crucial! It will crop the image to fit the ratio */
+                                border-radius: 0.2vw;
+                                image-rendering: crisp-edges;
+                                border-radius: 0.2vw;
+                            }
                         }
 
-                        p {
+                        .cryptoNewsDetails {
+                            height: auto;
+                            display: grid;
+                            // gap:0.5vw;
                             padding: 1vw;
-                            display: -webkit-box;
-                            -webkit-line-clamp: 2;
-                            line-clamp: 2;
-                            -webkit-box-orient: vertical;
-                            overflow: hidden;
-                            text-overflow: ellipsis;
-                            font-size: 1vw;
-                            text-align: center;
-                            // margin: 0;
-                            // padding: 0;
-                            line-height: 1.4em;
-                            max-height: calc(1.4em * 2)-0.6;
-                        }
+                            place-content: center;
+                            align-items: center;
 
-                        .block_level {
-                            display: block;
-                        }
+                            h1 {
+                                font-size: 1.3vw;
+                                text-align: center;
+                                font-weight: 600;
+                                margin: 0;
+                                padding: 0;
+                            }
 
-                        button {
-                            cursor: pointer;
-                            height: 2.5vw;
-                            width: 100%;
-                            border-radius: 0.4vw;
-                            background-color: black;
-                            color: white;
-                            border-color: black;
-                            font-size: 1vw;
-                            border-style: dashed;
-                            font-style: normal;
+                            p {
+                                padding: 1vw;
+                                display: -webkit-box;
+                                -webkit-line-clamp: 2;
+                                line-clamp: 2;
+                                -webkit-box-orient: vertical;
+                                overflow: hidden;
+                                text-overflow: ellipsis;
+                                font-size: 1vw;
+                                text-align: center;
+                                // margin: 0;
+                                // padding: 0;
+                                line-height: 1.4em;
+                                max-height: calc(1.4em * 2)-0.6;
+                            }
+
+                            .block_level {
+                                display: block;
+                            }
+
+                            button {
+                                cursor: pointer;
+                                height: 2.5vw;
+                                width: 100%;
+                                border-radius: 0.4vw;
+                                background-color: black;
+                                color: white;
+                                border-color: black;
+                                font-size: 1vw;
+                                border-style: dashed;
+                                font-style: normal;
+                            }
                         }
                     }
+
                 }
 
-            }
-
-            .techNews {
-                height: auto;
-
-                // background-color: #f8f6f6;
-
-                h1 {
-                    text-align: center;
-                }
-
-                .techCard {
+                .techNews {
                     height: auto;
-                    background-color: #f8f6f6;
-                    border-radius: 0.5vw;
-                    display: grid;
-                    gap: 1vw;
-                    place-content: center;
-                    align-items: center;
-                    // display: flex;
-                    // gap: 1vw;
 
-                    .techNewsImageDiv {
-                        display: grid;
-                        // place-content: center;
-                        // background-color: pink;
-                        // align-items: center;
+                    // background-color: #f8f6f6;
 
-                        img {
-                            // height: 100%;
-                            width: 100%;
-                            aspect-ratio: 16 / 9;
-                            /* Classic widescreen ratio (e.g., 1920x1080) */
-                            object-fit: cover;
-                            /* This is crucial! It will crop the image to fit the ratio */
-                            border-radius: 0.2vw;
-                            image-rendering: crisp-edges;
-                            border-radius: 0.2vw;
-                        }
+                    h1 {
+                        text-align: center;
                     }
 
-                    .techNewsDetails {
+                    .techCard {
                         height: auto;
+                        background-color: #f8f6f6;
+                        border-radius: 0.5vw;
                         display: grid;
-                        // gap:0.5vw;
-                        padding: 1vw;
+                        gap: 1vw;
                         place-content: center;
                         align-items: center;
+                        // display: flex;
+                        // gap: 1vw;
 
-                        h1 {
-                            font-size: 1.3vw;
-                            text-align: center;
-                            font-weight: 600;
-                            margin: 0;
-                            padding: 0;
+                        .techNewsImageDiv {
+                            display: grid;
+                            // place-content: center;
+                            // background-color: pink;
+                            // align-items: center;
+
+                            img {
+                                // height: 100%;
+                                width: 100%;
+                                aspect-ratio: 16 / 9;
+                                /* Classic widescreen ratio (e.g., 1920x1080) */
+                                object-fit: cover;
+                                /* This is crucial! It will crop the image to fit the ratio */
+                                border-radius: 0.2vw;
+                                image-rendering: crisp-edges;
+                                border-radius: 0.2vw;
+                            }
                         }
 
-                        p {
+                        .techNewsDetails {
+                            height: auto;
+                            display: grid;
+                            // gap:0.5vw;
                             padding: 1vw;
-                            display: -webkit-box;
-                            -webkit-line-clamp: 2;
-                            line-clamp: 2;
-                            -webkit-box-orient: vertical;
-                            overflow: hidden;
-                            text-overflow: ellipsis;
-                            font-size: 1vw;
-                            text-align: center;
-                            // margin: 0;
-                            // padding: 0;
-                            line-height: 1.4em;
-                            max-height: calc(1.4em * 2)-0.6;
-                        }
+                            place-content: center;
+                            align-items: center;
 
-                        .block_level {
-                            display: block;
-                        }
+                            h1 {
+                                font-size: 1.3vw;
+                                text-align: center;
+                                font-weight: 600;
+                                margin: 0;
+                                padding: 0;
+                            }
 
-                        button {
-                            cursor: pointer;
-                            height: 2.5vw;
-                            width: 100%;
-                            border-radius: 0.4vw;
-                            background-color: black;
-                            color: white;
-                            border-color: black;
-                            font-size: 1vw;
-                            border-style: dashed;
-                            font-style: normal;
+                            p {
+                                padding: 1vw;
+                                display: -webkit-box;
+                                -webkit-line-clamp: 2;
+                                line-clamp: 2;
+                                -webkit-box-orient: vertical;
+                                overflow: hidden;
+                                text-overflow: ellipsis;
+                                font-size: 1vw;
+                                text-align: center;
+                                // margin: 0;
+                                // padding: 0;
+                                line-height: 1.4em;
+                                max-height: calc(1.4em * 2)-0.6;
+                            }
+
+                            .block_level {
+                                display: block;
+                            }
+
+                            button {
+                                cursor: pointer;
+                                height: 2.5vw;
+                                width: 100%;
+                                border-radius: 0.4vw;
+                                background-color: black;
+                                color: white;
+                                border-color: black;
+                                font-size: 1vw;
+                                border-style: dashed;
+                                font-style: normal;
+                            }
                         }
                     }
+
                 }
 
-            }
-
-            .hotNews {
-                height: auto;
-
-                // background-color: #f8f6f6;
-
-                h1 {
-                    text-align: center;
-                }
-
-                .hotCard {
+                .hotNews {
                     height: auto;
-                    background-color: #f8f6f6;
-                    border-radius: 0.5vw;
-                    display: grid;
-                    gap: 1vw;
-                    place-content: center;
-                    align-items: center;
-                    // display: flex;
-                    // gap: 1vw;
 
-                    .hotNewsImageDiv {
-                        display: grid;
-                        // place-content: center;
-                        // background-color: pink;
-                        // align-items: center;
+                    // background-color: #f8f6f6;
 
-                        img {
-                            // height: 100%;
-                            width: 100%;
-                            aspect-ratio: 16 / 9;
-                            /* Classic widescreen ratio (e.g., 1920x1080) */
-                            object-fit: cover;
-                            /* This is crucial! It will crop the image to fit the ratio */
-                            border-radius: 0.2vw;
-                            image-rendering: crisp-edges;
-                            border-radius: 0.2vw;
-                        }
+                    h1 {
+                        text-align: center;
                     }
 
-                    .hotNewsDetails {
+                    .hotCard {
                         height: auto;
+                        background-color: #f8f6f6;
+                        border-radius: 0.5vw;
                         display: grid;
-                        // gap:0.5vw;
-                        padding: 1vw;
+                        gap: 1vw;
                         place-content: center;
                         align-items: center;
+                        // display: flex;
+                        // gap: 1vw;
 
-                        h1 {
-                            font-size: 1.3vw;
-                            text-align: center;
-                            font-weight: 600;
-                            margin: 0;
-                            padding: 0;
+                        .hotNewsImageDiv {
+                            display: grid;
+                            // place-content: center;
+                            // background-color: pink;
+                            // align-items: center;
+
+                            img {
+                                // height: 100%;
+                                width: 100%;
+                                aspect-ratio: 16 / 9;
+                                /* Classic widescreen ratio (e.g., 1920x1080) */
+                                object-fit: cover;
+                                /* This is crucial! It will crop the image to fit the ratio */
+                                border-radius: 0.2vw;
+                                image-rendering: crisp-edges;
+                                border-radius: 0.2vw;
+                            }
                         }
 
-                        p {
+                        .hotNewsDetails {
+                            height: auto;
+                            display: grid;
+                            // gap:0.5vw;
                             padding: 1vw;
-                            display: -webkit-box;
-                            -webkit-line-clamp: 2;
-                            line-clamp: 2;
-                            -webkit-box-orient: vertical;
-                            overflow: hidden;
-                            text-overflow: ellipsis;
-                            font-size: 1vw;
-                            text-align: center;
-                            // margin: 0;
-                            // padding: 0;
-                            line-height: 1.4em;
-                            max-height: calc(1.4em * 2)-0.6;
-                        }
+                            place-content: center;
+                            align-items: center;
 
-                        .block_level {
-                            display: block;
-                        }
+                            h1 {
+                                font-size: 1.3vw;
+                                text-align: center;
+                                font-weight: 600;
+                                margin: 0;
+                                padding: 0;
+                            }
 
-                        button {
-                            cursor: pointer;
-                            height: 2.5vw;
-                            width: 100%;
-                            border-radius: 0.4vw;
-                            background-color: black;
-                            color: white;
-                            border-color: black;
-                            font-size: 1vw;
-                            border-style: dashed;
-                            font-style: normal;
+                            p {
+                                padding: 1vw;
+                                display: -webkit-box;
+                                -webkit-line-clamp: 2;
+                                line-clamp: 2;
+                                -webkit-box-orient: vertical;
+                                overflow: hidden;
+                                text-overflow: ellipsis;
+                                font-size: 1vw;
+                                text-align: center;
+                                // margin: 0;
+                                // padding: 0;
+                                line-height: 1.4em;
+                                max-height: calc(1.4em * 2)-0.6;
+                            }
+
+                            .block_level {
+                                display: block;
+                            }
+
+                            button {
+                                cursor: pointer;
+                                height: 2.5vw;
+                                width: 100%;
+                                border-radius: 0.4vw;
+                                background-color: black;
+                                color: white;
+                                border-color: black;
+                                font-size: 1vw;
+                                border-style: dashed;
+                                font-style: normal;
+                            }
                         }
                     }
+
                 }
 
-            }
-
-            .historicNews {
-                height: auto;
-                // background-color: #f8f6f6;
-
-                h1 {
-                    text-align: center;
-                }
-
-                .historicCard {
+                .historicNews {
                     height: auto;
-                    background-color: #f8f6f6;
-                    border-radius: 0.5vw;
-                    display: grid;
-                    gap: 1vw;
-                    place-content: center;
-                    align-items: center;
-                    // display: flex;
-                    // gap: 1vw;
+                    // background-color: #f8f6f6;
 
-                    .historicNewsImageDiv {
-                        display: grid;
-                        // place-content: center;
-                        // background-color: pink;
-                        // align-items: center;
-
-                        img {
-                            // height: 100%;
-                            width: 100%;
-                            aspect-ratio: 16 / 9;
-                            /* Classic widescreen ratio (e.g., 1920x1080) */
-                            object-fit: cover;
-                            /* This is crucial! It will crop the image to fit the ratio */
-                            border-radius: 0.2vw;
-                            image-rendering: crisp-edges;
-                            border-radius: 0.2vw;
-                        }
+                    h1 {
+                        text-align: center;
                     }
 
-                    .historicNewsDetails {
+                    .historicCard {
                         height: auto;
+                        background-color: #f8f6f6;
+                        border-radius: 0.5vw;
                         display: grid;
-                        // gap:0.5vw;
-                        padding: 1vw;
+                        gap: 1vw;
                         place-content: center;
                         align-items: center;
+                        // display: flex;
+                        // gap: 1vw;
 
-                        h1 {
-                            font-size: 1.3vw;
-                            text-align: center;
-                            font-weight: 600;
-                            margin: 0;
-                            padding: 0;
+                        .historicNewsImageDiv {
+                            display: grid;
+                            // place-content: center;
+                            // background-color: pink;
+                            // align-items: center;
+
+                            img {
+                                // height: 100%;
+                                width: 100%;
+                                aspect-ratio: 16 / 9;
+                                /* Classic widescreen ratio (e.g., 1920x1080) */
+                                object-fit: cover;
+                                /* This is crucial! It will crop the image to fit the ratio */
+                                border-radius: 0.2vw;
+                                image-rendering: crisp-edges;
+                                border-radius: 0.2vw;
+                            }
                         }
 
-                        p {
+                        .historicNewsDetails {
+                            height: auto;
+                            display: grid;
+                            // gap:0.5vw;
                             padding: 1vw;
-                            display: -webkit-box;
-                            -webkit-line-clamp: 2;
-                            line-clamp: 2;
-                            -webkit-box-orient: vertical;
-                            overflow: hidden;
-                            text-overflow: ellipsis;
-                            font-size: 1vw;
-                            text-align: center;
-                            // margin: 0;
-                            // padding: 0;
-                            line-height: 1.4em;
-                            max-height: calc(1.4em * 2)-0.6;
-                        }
+                            place-content: center;
+                            align-items: center;
 
-                        .block_level {
-                            display: block;
-                        }
+                            h1 {
+                                font-size: 1.3vw;
+                                text-align: center;
+                                font-weight: 600;
+                                margin: 0;
+                                padding: 0;
+                            }
 
-                        button {
-                            cursor: pointer;
-                            height: 2.5vw;
-                            width: 100%;
-                            border-radius: 0.4vw;
-                            background-color: black;
-                            color: white;
-                            border-color: black;
-                            font-size: 1vw;
-                            border-style: dashed;
-                            font-style: normal;
+                            p {
+                                padding: 1vw;
+                                display: -webkit-box;
+                                -webkit-line-clamp: 2;
+                                line-clamp: 2;
+                                -webkit-box-orient: vertical;
+                                overflow: hidden;
+                                text-overflow: ellipsis;
+                                font-size: 1vw;
+                                text-align: center;
+                                // margin: 0;
+                                // padding: 0;
+                                line-height: 1.4em;
+                                max-height: calc(1.4em * 2)-0.6;
+                            }
+
+                            .block_level {
+                                display: block;
+                            }
+
+                            button {
+                                cursor: pointer;
+                                height: 2.5vw;
+                                width: 100%;
+                                border-radius: 0.4vw;
+                                background-color: black;
+                                color: white;
+                                border-color: black;
+                                font-size: 1vw;
+                                border-style: dashed;
+                                font-style: normal;
+                            }
                         }
                     }
+
                 }
 
+                .newsNext{
+                    height: auto;
+                }
             }
+
+
 
             .language1,
             .language2,
@@ -575,22 +589,22 @@
                         // height: auto;
 
                         .itemDetails {
-                                // height: 5vw;
-                                padding: 0.7vw 0.8vw;
-                                width: 5vw;
-                                font-size: 1vw;
-                                background-color: black;
-                                margin-left: 0.7vw;
-                                color: white;
-                                border-radius: 0.5vw;
-                                font-weight: 500;
-                                text-align: center;
-                                // order: 4;
-                                text-decoration-color: black;
-                                text-decoration-line: underline;
-                                // text-decoration: none;
-                                // order: 3;
-                            }
+                            // height: 5vw;
+                            padding: 0.7vw 0.8vw;
+                            width: 5vw;
+                            font-size: 1vw;
+                            background-color: black;
+                            margin-left: 0.7vw;
+                            color: white;
+                            border-radius: 0.5vw;
+                            font-weight: 500;
+                            text-align: center;
+                            // order: 4;
+                            text-decoration-color: black;
+                            text-decoration-line: underline;
+                            // text-decoration: none;
+                            // order: 3;
+                        }
 
                         p {
                             text-decoration: none;
@@ -730,7 +744,7 @@
                                 // height: 5vw;
                                 width: 20vw;
                                 font-size: 3vw;
-                                padding:2vw 1vw;
+                                padding: 2vw 1vw;
                                 background-color: black;
                                 color: white;
                                 border-radius: 0.9vw;
@@ -834,7 +848,7 @@
                 font-size: 1w;
             }
 
-            p{
+            p {
                 font-size: 3vw;
             }
 
