@@ -17,6 +17,10 @@ export const Header = ({ searchItem, setSearchItem, onSelect, setOnSelect }) => 
     setIsIconClicked(false);
   }
 
+  // console.log(searchItem);
+  
+  
+
   return (
     <div className={styles.mainContainer}>
       {/* <div className={styles.logo}>

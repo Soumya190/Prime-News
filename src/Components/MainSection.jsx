@@ -16,16 +16,18 @@ export const MainSection = ({ onSelect, setOnSelect }) => {
   const [cryptoNews, setCryptoNews] = useState([]);
   const [nextPage, setNextPage] = useState("1760738400517365268");
   const [pageTokens, setPageTokens] = useState([null]);
+  const [selectedLanguage, setSelectedLanguage] = useState("en");
+
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await fetch(`https://newsdata.io/api/1/latest?apikey=pub_3ff884d506af452b8feecd9368c91f84&category=${onSelect}&q=stocks&language=en&size=10`);
-        const trendingNewsRes = await fetch(`https://newsdata.io/api/1/latest?apikey=pub_3ff884d506af452b8feecd9368c91f84&q=trending%20news&language=en&size=1`);
-        const historicNewsRes = await fetch(`https://newsdata.io/api/1/latest?apikey=pub_3ff884d506af452b8feecd9368c91f84&q=historic%20news&size=1&language=en`);
-        const hotNewsRes = await fetch(`https://newsdata.io/api/1/latest?apikey=pub_3ff884d506af452b8feecd9368c91f84&q=hot%20news&size=1&language=en`);
-        const techNewsRes = await fetch(`https://newsdata.io/api/1/latest?apikey=pub_3ff884d506af452b8feecd9368c91f84&q=tech%20news&size=1&language=en`);
-        const cryptoNewsRes = await fetch(`https://newsdata.io/api/1/latest?apikey=pub_3ff884d506af452b8feecd9368c91f84&q=crypto%20news&language=en&size=1`)
+        const res = await fetch(`https://newsdata.io/api/1/latest?apikey=pub_3ff884d506af452b8feecd9368c91f84&category=${onSelect}&language=${selectedLanguage}&size=10`);
+        const trendingNewsRes = await fetch(`https://newsdata.io/api/1/latest?apikey=pub_3ff884d506af452b8feecd9368c91f84&q=trending%20news&language=${selectedLanguage}&size=1`);
+        const historicNewsRes = await fetch(`https://newsdata.io/api/1/latest?apikey=pub_3ff884d506af452b8feecd9368c91f84&q=historic%20news&size=1&language=${selectedLanguage}`);
+        const hotNewsRes = await fetch(`https://newsdata.io/api/1/latest?apikey=pub_3ff884d506af452b8feecd9368c91f84&q=hot%20news&size=1&language=${selectedLanguage}`);
+        const techNewsRes = await fetch(`https://newsdata.io/api/1/latest?apikey=pub_3ff884d506af452b8feecd9368c91f84&q=tech%20news&size=1&language=${selectedLanguage}`);
+        const cryptoNewsRes = await fetch(`https://newsdata.io/api/1/latest?apikey=pub_3ff884d506af452b8feecd9368c91f84&q=crypto%20news&language=${selectedLanguage}&size=1`);
         const techNewsJson = await techNewsRes.json();
         const cryptoNewsJson = await cryptoNewsRes.json();
         const hotNewsJson = await hotNewsRes.json();
@@ -53,32 +55,60 @@ export const MainSection = ({ onSelect, setOnSelect }) => {
     };
 
     fetchData();
-  }, [onSelect]);
+  }, [onSelect]&&[selectedLanguage]);
+
+  const handleSelect = (e) => {
+    const selectLanguage = e.target.value;
+    setSelectedLanguage(selectLanguage);
+    console.log(selectedLanguage);
+    
+  }
 
 
 
   useEffect(() => {
-    if(countPagination>1 && countPagination<=10){
-    // useEffect(() => {
-      const fetchNextPage = async () => {
+    if (searchItem !== "") {
+      const filteredData = async () => {
         try {
-          const data = await fetch(`https://newsdata.io/api/1/latest?apikey=pub_3ff884d506af452b8feecd9368c91f84&category=${onSelect}&q=stocks&language=en&size=10&page=${nextPage}`);
-          const jsonData = await data.json();
-          console.log(jsonData);
-          // setData(jsonData.results);
-          if (jsonData.nextPage) {
-            setNextPage(jsonData.nextPage);
-            setPageTokens((prevTokens) => [...prevTokens, jsonData.nextPage]);
-          }
-        } catch (err) {
-          console.log("Error fetching next page:", err);
+          const filteredRes = await fetch(`https://newsdata.io/api/1/latest?apikey=pub_3ff884d506af452b8feecd9368c91f84&category=${onSelect}&q=${searchItem}&language=en&size=10`)
+          const filteredJson = await filteredRes.json();
+          console.log("Filtered Data:", filteredJson);
+          setData(filteredJson.results);
         }
-      };
+        catch (err) {
+          console.error("Error fetching filtered data:", err);
+        }
+      }
 
-      fetchNextPage();
-    // }, [countPagination]);
-  }
-  }, [countPagination]);
+      filteredData();
+    }
+  }, [searchItem]);
+
+
+  // useEffect(() => {
+  //   if(countPagination>1 && countPagination<=10){
+  //   // useEffect(() => {
+  //     const fetchNextPage = async () => {
+  //       try {
+  //         const data = await fetch(`https://newsdata.io/api/1/latest?apikey=pub_3ff884d506af452b8feecd9368c91f84&category=${onSelect}&q=stocks&language=en&size=10&page=${nextPage}`);
+  //         const jsonData = await data.json();
+  //         console.log(jsonData);
+  //         // setData(jsonData.results);
+  //         if (jsonData.nextPage) {
+  //           setNextPage(jsonData.nextPage);
+  //           setPageTokens((prevTokens) => [...prevTokens, jsonData.nextPage]);
+  //         }
+  //       } catch (err) {
+  //         console.log("Error fetching next page:", err);
+  //       }
+  //     };
+
+  //     fetchNextPage();
+  //   // }, [countPagination]);
+  // }
+  // }, [countPagination]);
+
+  // else if(searchItem!=)
 
   // useEffect(()=>{
   //   const fetchNextPage = async()=>{
@@ -111,7 +141,25 @@ export const MainSection = ({ onSelect, setOnSelect }) => {
               </Link>
             </div>
             <div className={styles.languageContainer}>
-              <p>Language</p>
+              <div className={styles.languageIcon}>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><path fill="#FFFFFF" d="M192 64C209.7 64 224 78.3 224 96L224 128L352 128C369.7 128 384 142.3 384 160C384 177.7 369.7 192 352 192L342.4 192L334 215.1C317.6 260.3 292.9 301.6 261.8 337.1C276 345.9 290.8 353.7 306.2 360.6L356.6 383L418.8 243C423.9 231.4 435.4 224 448 224C460.6 224 472.1 231.4 477.2 243L605.2 531C612.4 547.2 605.1 566.1 589 573.2C572.9 580.3 553.9 573.1 546.8 557L526.8 512L369.3 512L349.3 557C342.1 573.2 323.2 580.4 307.1 573.2C291 566 283.7 547.1 290.9 531L330.7 441.5L280.3 419.1C257.3 408.9 235.3 396.7 214.5 382.7C193.2 399.9 169.9 414.9 145 427.4L110.3 444.6C94.5 452.5 75.3 446.1 67.4 430.3C59.5 414.5 65.9 395.3 81.7 387.4L116.2 370.1C132.5 361.9 148 352.4 162.6 341.8C148.8 329.1 135.8 315.4 123.7 300.9L113.6 288.7C102.3 275.1 104.1 254.9 117.7 243.6C131.3 232.3 151.5 234.1 162.8 247.7L173 259.9C184.5 273.8 197.1 286.7 210.4 298.6C237.9 268.2 259.6 232.5 273.9 193.2L274.4 192L64.1 192C46.3 192 32 177.7 32 160C32 142.3 46.3 128 64 128L160 128L160 96C160 78.3 174.3 64 192 64zM448 334.8L397.7 448L498.3 448L448 334.8z" /></svg>
+              </div>
+              <select >
+                <option value="en" onClick={handleSelect}>English</option>
+                <option value="as" onClick={handleSelect}>Assamese</option>
+                <option value="bn" onClick={handleSelect}>Bengali</option>
+                <option value="gu" onClick={handleSelect}>Gujarati</option>
+                <option value="hi" onClick={handleSelect}>Hindi</option>
+                <option value="kn" onClick={handleSelect}>Kannada</option>
+                <option value="ma" onClick={handleSelect}>Malayalam</option>
+                <option value="mr" onClick={handleSelect}>Marathi</option>
+                <option value="or" onClick={handleSelect}>Oriya</option>
+                <option value="pa" onClick={handleSelect}>Punjabi</option>
+                <option value="ta" onClick={handleSelect}>Tamil</option>
+                <option value="te" onClick={handleSelect}>Telugu</option>
+                <option value="ur" onClick={handleSelect}>Urdu</option>
+                <option value="fr" onClick={handleSelect}>French</option>
+              </select>
             </div>
             <div className={styles.newsContainer}>
               <div className={styles.trendingNews}>
@@ -231,6 +279,7 @@ export const MainSection = ({ onSelect, setOnSelect }) => {
               {data.map((item, index) => (
                 <div key={index} className={styles.card}>
                   <div className={styles.news}>
+                    <p className={styles.country_name}>{item.country}</p>
                     <h1>{item.title}</h1>
                     <p>{item.description}</p>
                     <Link href={item.link} >
@@ -244,6 +293,7 @@ export const MainSection = ({ onSelect, setOnSelect }) => {
               ))}
             </div>
           </div>
+
         </div>
         <div className={styles.pagination}>
           {countPagination != 1 ? (
