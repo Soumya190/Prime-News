@@ -9,7 +9,7 @@ import { signIn, useSession } from 'next-auth/react'
 const Login = () => {
     const session = useSession();
     console.log(session);
-    
+
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [ispasswordValid, setIsPasswordValid] = useState(false);
@@ -28,7 +28,7 @@ const Login = () => {
                 if (varifyEmail) {
                     setEmail(email);
                     console.log(email);
-                    
+
                     setIsEmailValid(true);
 
                 }
@@ -46,7 +46,7 @@ const Login = () => {
         else {
             alert("Please enter your email");
             // console.log("Please enter your email");
-            
+
         }
     }
 
@@ -95,23 +95,26 @@ const Login = () => {
 
     const handleSubmit = () => {
         // if (email.length > 0 && password.length > 0) {
-            emailVerification();
-            passwordVerification();
-            if (isemailValid === true && ispasswordValid === true) {
-                setButtonClickValid(true);
-                // console.log(buttonClickValid);
-            }
+        emailVerification();
+        passwordVerification();
+        if (isemailValid === true && ispasswordValid === true) {
+            setButtonClickValid(true);
+            // console.log(buttonClickValid);
+        }
         // }
     }
 
 
     return (
         <div className={styles.loginmainContainer}>
-            <Link href="/">
-                <button className={styles.backBtn}>
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><path fill="black" d="M73.4 297.4C60.9 309.9 60.9 330.2 73.4 342.7L233.4 502.7C245.9 515.2 266.2 515.2 278.7 502.7C291.2 490.2 291.2 469.9 278.7 457.4L173.3 352L544 352C561.7 352 576 337.7 576 320C576 302.3 561.7 288 544 288L173.3 288L278.7 182.6C291.2 170.1 291.2 149.8 278.7 137.3C266.2 124.8 245.9 124.8 233.4 137.3L73.4 297.3z" /></svg>
-                </button>
-            </Link>
+            <div className={styles.backBtnContainer}>
+                <Link href="/">
+                    <button className={styles.backBtn}>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><path fill="black" d="M73.4 297.4C60.9 309.9 60.9 330.2 73.4 342.7L233.4 502.7C245.9 515.2 266.2 515.2 278.7 502.7C291.2 490.2 291.2 469.9 278.7 457.4L173.3 352L544 352C561.7 352 576 337.7 576 320C576 302.3 561.7 288 544 288L173.3 288L278.7 182.6C291.2 170.1 291.2 149.8 278.7 137.3C266.2 124.8 245.9 124.8 233.4 137.3L73.4 297.3z" /></svg>
+                    </button>
+                </Link>
+                {session.status === "authenticated" && <img src={session.data.user.image} alt='user logo' />}
+            </div>
             <div className={styles.signInContainer}>
                 <div className={styles.loginContent}>
                     <div className={styles.signInHeader}>
@@ -151,14 +154,16 @@ const Login = () => {
                         <hr />
                     </div>
                     <div className={styles.signInOptions}>
-                        <button className={styles.googleBtn} onClick={()=>signIn("google")}>
+                        <button className={styles.googleBtn} onClick={() => signIn("google")}>
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><path fill="#ffffff" d="M564 325.8C564 467.3 467.1 568 324 568C186.8 568 76 457.2 76 320C76 182.8 186.8 72 324 72C390.8 72 447 96.5 490.3 136.9L422.8 201.8C334.5 116.6 170.3 180.6 170.3 320C170.3 406.5 239.4 476.6 324 476.6C422.2 476.6 459 406.2 464.8 369.7L324 369.7L324 284.4L560.1 284.4C562.4 297.1 564 309.3 564 325.8z" /></svg>
                         </button>
-                        <button className={styles.twitterBtn} onClick={()=>signIn("twitter")}>
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><path fill="#ffffff" d="M453.2 112L523.8 112L369.6 288.2L551 528L409 528L297.7 382.6L170.5 528L99.8 528L264.7 339.5L90.8 112L236.4 112L336.9 244.9L453.2 112zM428.4 485.8L467.5 485.8L215.1 152L173.1 152L428.4 485.8z"/></svg>
+                        {/* {session.status==="authenticated" && <img src={session.data.user.image} alt='user logo'/>} */}
+                        {/* <img src="" alt="" /> */}
+                        <button className={styles.twitterBtn} onClick={() => signIn("twitter")}>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><path fill="#ffffff" d="M453.2 112L523.8 112L369.6 288.2L551 528L409 528L297.7 382.6L170.5 528L99.8 528L264.7 339.5L90.8 112L236.4 112L336.9 244.9L453.2 112zM428.4 485.8L467.5 485.8L215.1 152L173.1 152L428.4 485.8z" /></svg>
                         </button>
-                        <button className={styles.facebookBtn} onClick={()=>signIn("facebook")}>
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><path fill="#ffffff" d="M240 363.3L240 576L356 576L356 363.3L442.5 363.3L460.5 265.5L356 265.5L356 230.9C356 179.2 376.3 159.4 428.7 159.4C445 159.4 458.1 159.8 465.7 160.6L465.7 71.9C451.4 68 416.4 64 396.2 64C289.3 64 240 114.5 240 223.4L240 265.5L174 265.5L174 363.3L240 363.3z"/></svg>
+                        <button className={styles.facebookBtn} onClick={() => signIn("facebook")}>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><path fill="#ffffff" d="M240 363.3L240 576L356 576L356 363.3L442.5 363.3L460.5 265.5L356 265.5L356 230.9C356 179.2 376.3 159.4 428.7 159.4C445 159.4 458.1 159.8 465.7 160.6L465.7 71.9C451.4 68 416.4 64 396.2 64C289.3 64 240 114.5 240 223.4L240 265.5L174 265.5L174 363.3L240 363.3z" /></svg>
                         </button>
                     </div>
                     <div className={styles.signupOption}>

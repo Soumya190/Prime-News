@@ -20,7 +20,7 @@
             // place-content: space-around;
             // background-color: yellow;
             // padding: 1vw;
-            gap: 2vw;
+            gap:0.5vw;
             height: 100%;
             box-shadow: #6c6a6a;
             margin-left: 2vw;
@@ -33,7 +33,7 @@
                 background-color: #f8f6f6;
                 // background-color: #f8f6f6;
                 display: flex;
-                gap: 1vw;
+                gap: 3vw;
                 justify-content: center;
                 align-items: center;
 
@@ -58,7 +58,8 @@
                 button {
                     height: 2vw;
                     width: 5vw;
-                    border-radius: 2vw;
+                    border-radius: 0.4vw;
+                    // border-radius: 2vw;
                     color: black;
                     border-width: 0.1vw;
                     font-family: poppins;
@@ -76,7 +77,7 @@
                 background-color: #f8f6f6;
                 // background-color: #f8f6f6;
                 display: flex;
-                gap: 1vw;
+                gap: 2vw;
                 justify-content: center;
                 align-items: center;
 
@@ -100,9 +101,10 @@
 
                 select {
                     height: 2.5vw;
-                    width: 8vw;
+                    // content: '\2193';
+                    width: 6vw;
                     border-radius: 5px;
-                    border: none;
+                    border: 0.1vw solid black;
                     text-align: center;
                     background-color: #f8f6f6;
                     color: black;
@@ -115,7 +117,7 @@
 
 
                     &:hover {
-                        background-color: black
+                        background-color: rgb(244, 242, 242);
                     }
                 }
             }
@@ -123,6 +125,7 @@
             .newsContainer {
                 display: grid;
                 width: 20vw;
+                // gap:auto;
                 // background-color: red;
 
                 .trendingNews {
@@ -133,6 +136,8 @@
 
                     h1 {
                         text-align: center;
+                        font-size: 1.7vw;
+                        text-transform: uppercase;
                     }
 
                     .trendingCard {
@@ -140,7 +145,7 @@
                         background-color: #f8f6f6;
                         border-radius: 0.5vw;
                         display: grid;
-                        gap: 1vw;
+                        // gap: 1vw;
                         place-content: center;
                         align-items: center;
                         // display: flex;
@@ -151,6 +156,10 @@
                             // place-content: center;
                             // background-color: pink;
                             // align-items: center;
+
+                            h1{
+                                font-size: 1.4vw;
+                            }
 
                             img {
                                 // height: 100%;
@@ -178,14 +187,15 @@
                                 text-align: center;
                                 font-weight: 600;
                                 margin: 0;
+                                text-transform: capitalize;
                                 padding: 0;
                             }
 
                             p {
                                 padding: 1vw;
                                 display: -webkit-box;
-                                -webkit-line-clamp: 2;
-                                line-clamp: 2;
+                                -webkit-line-clamp: 3;
+                                line-clamp: 3;
                                 -webkit-box-orient: vertical;
                                 overflow: hidden;
                                 text-overflow: ellipsis;
@@ -194,7 +204,7 @@
                                 // margin: 0;
                                 // padding: 0;
                                 line-height: 1.4em;
-                                max-height: calc(1.4em * 2)-0.6;
+                                max-height: calc(1.4em * 3)-0.6;
                             }
 
                             .block_level {
@@ -225,6 +235,8 @@
 
                     h1 {
                         text-align: center;
+                        font-size: 1.7vw;
+                        text-transform: uppercase;
                     }
 
                     .cryptoCard {
@@ -243,6 +255,9 @@
                             // place-content: center;
                             // background-color: pink;
                             // align-items: center;
+                            h1{
+                                font-size: 1.4vw;
+                            }
 
                             img {
                                 // height: 100%;
@@ -261,7 +276,7 @@
                             height: auto;
                             display: grid;
                             // gap:0.5vw;
-                            padding: 1vw;
+                            // padding: 1vw;
                             place-content: center;
                             align-items: center;
 
@@ -271,13 +286,14 @@
                                 font-weight: 600;
                                 margin: 0;
                                 padding: 0;
+                                text-transform: capitalize;
                             }
 
                             p {
                                 padding: 1vw;
                                 display: -webkit-box;
-                                -webkit-line-clamp: 2;
-                                line-clamp: 2;
+                                -webkit-line-clamp: 3;
+                                line-clamp: 3;
                                 -webkit-box-orient: vertical;
                                 overflow: hidden;
                                 text-overflow: ellipsis;
@@ -286,7 +302,7 @@
                                 // margin: 0;
                                 // padding: 0;
                                 line-height: 1.4em;
-                                max-height: calc(1.4em * 2)-0.6;
+                                max-height: calc(1.4em * 3)-0.6;
                             }
 
                             .block_level {
@@ -317,6 +333,8 @@
 
                     h1 {
                         text-align: center;
+                        font-size: 1.7vw;
+                        text-transform: uppercase;
                     }
 
                     .techCard {
@@ -336,6 +354,10 @@
                             // background-color: pink;
                             // align-items: center;
 
+                            h1{
+                                font-size: 1.4vw;
+                            }
+
                             img {
                                 // height: 100%;
                                 width: 100%;
@@ -353,7 +375,7 @@
                             height: auto;
                             display: grid;
                             // gap:0.5vw;
-                            padding: 1vw;
+                            // padding: 1vw;
                             place-content: center;
                             align-items: center;
 
@@ -363,13 +385,14 @@
                                 font-weight: 600;
                                 margin: 0;
                                 padding: 0;
+                                text-transform: capitalize;
                             }
 
                             p {
                                 padding: 1vw;
                                 display: -webkit-box;
-                                -webkit-line-clamp: 2;
-                                line-clamp: 2;
+                                -webkit-line-clamp: 3;
+                                line-clamp: 3;
                                 -webkit-box-orient: vertical;
                                 overflow: hidden;
                                 text-overflow: ellipsis;
@@ -378,7 +401,7 @@
                                 // margin: 0;
                                 // padding: 0;
                                 line-height: 1.4em;
-                                max-height: calc(1.4em * 2)-0.6;
+                                max-height: calc(1.4em * 3)-0.6;
                             }
 
                             .block_level {
@@ -409,6 +432,8 @@
 
                     h1 {
                         text-align: center;
+                        font-size: 1.7vw;
+                        text-transform: uppercase;
                     }
 
                     .hotCard {
@@ -428,6 +453,10 @@
                             // background-color: pink;
                             // align-items: center;
 
+                            h1{
+                                font-size: 1.4vw;
+                            }
+
                             img {
                                 // height: 100%;
                                 width: 100%;
@@ -445,7 +474,7 @@
                             height: auto;
                             display: grid;
                             // gap:0.5vw;
-                            padding: 1vw;
+                            // padding: 1vw;
                             place-content: center;
                             align-items: center;
 
@@ -455,13 +484,14 @@
                                 font-weight: 600;
                                 margin: 0;
                                 padding: 0;
+                                text-decoration: capitalize;
                             }
 
                             p {
                                 padding: 1vw;
                                 display: -webkit-box;
-                                -webkit-line-clamp: 2;
-                                line-clamp: 2;
+                                -webkit-line-clamp: 3;
+                                line-clamp: 3;
                                 -webkit-box-orient: vertical;
                                 overflow: hidden;
                                 text-overflow: ellipsis;
@@ -470,7 +500,7 @@
                                 // margin: 0;
                                 // padding: 0;
                                 line-height: 1.4em;
-                                max-height: calc(1.4em * 2)-0.6;
+                                max-height: calc(1.4em * 3)-0.6;
                             }
 
                             .block_level {
@@ -500,6 +530,8 @@
 
                     h1 {
                         text-align: center;
+                        font-size: 1.7vw;
+                        text-transform: uppercase;
                     }
 
                     .historicCard {
@@ -519,6 +551,10 @@
                             // background-color: pink;
                             // align-items: center;
 
+                            h1{
+                                font-size: 1.4vw;
+                            }
+
                             img {
                                 // height: 100%;
                                 width: 100%;
@@ -536,7 +572,7 @@
                             height: auto;
                             display: grid;
                             // gap:0.5vw;
-                            padding: 1vw;
+                            // padding: 1vw;
                             place-content: center;
                             align-items: center;
 
@@ -544,6 +580,7 @@
                                 font-size: 1.3vw;
                                 text-align: center;
                                 font-weight: 600;
+                                text-transform: capitalize;
                                 margin: 0;
                                 padding: 0;
                             }
@@ -551,8 +588,10 @@
                             p {
                                 padding: 1vw;
                                 display: -webkit-box;
-                                -webkit-line-clamp: 2;
-                                line-clamp: 2;
+                                -webkit-line-clamp: 3;
+                                line-clamp: 3;
+                                margin: 0;
+                                
                                 -webkit-box-orient: vertical;
                                 overflow: hidden;
                                 text-overflow: ellipsis;
@@ -561,7 +600,7 @@
                                 // margin: 0;
                                 // padding: 0;
                                 line-height: 1.4em;
-                                max-height: calc(1.4em * 2)-0.6;
+                                max-height: calc(1.4em * 3)-0.6;
                             }
 
                             .block_level {
