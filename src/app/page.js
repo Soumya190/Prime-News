@@ -2,8 +2,8 @@
 import Image from "next/image";
 import styles from "./page.module.css";
 import { useState } from "react";
-import { Header } from "@/Components/Header/Header";
-import { MainSection } from "@/Components/MainSection";
+// import { Header } from "@/Components/Header/Header";
+import MainSection from "../Components/MainSection/MainSection"
 
 export default function Home() {
   const [searchItem, setSearchItem] = useState("");

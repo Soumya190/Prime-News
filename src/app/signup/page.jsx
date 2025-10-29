@@ -1,7 +1,7 @@
 "use client"
 import { useState} from 'react';
 import React from 'react'
-import styles from '@/Styles/SignUp/signup.module.scss'
+import styles from '../../Styles/SignUp/signup.module.scss'
 import Link from 'next/link';
 
 const Signup = () => {

@@ -1,9 +1,9 @@
 "use client";
 
 import React, { useState, useEffect } from 'react'
-import styles from "@/Styles/Header/header.module.scss";
+import styles from "../../Styles/Header/header.module.scss";
 import Link from 'next/link';
-import { MainSection } from '../MainSection';
+import { MainSection } from '../MainSection/MainSection';
 
 export const Header = ({ searchItem, setSearchItem, onSelect, setOnSelect }) => {
   const [isIconClicked, setIsIconClicked] = useState(false);

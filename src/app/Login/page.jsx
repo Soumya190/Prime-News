@@ -1,7 +1,8 @@
 "use client"
 
 import React, { useState } from 'react'
-import styles from '@/Styles/Login/Login.module.scss'
+// import styles from '@/Styles/Login/Login.module.scss'
+import styles from '../../Styles/Login/Login.module.scss'
 import Link from 'next/link'
 import { signIn, useSession } from 'next-auth/react'
 

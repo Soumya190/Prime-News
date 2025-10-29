@@ -1,11 +1,11 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import styles from "@/Styles/MainSection/mainSection.module.scss";
-import { Header } from "./Header/Header";
+import styles from "../../Styles/MainSection/mainSection.module.scss";
+import { Header } from "../Header/Header";
 import Link from "next/link";
 
-export const MainSection = ({ onSelect, setOnSelect }) => {
+const MainSection = ({ onSelect, setOnSelect }) => {
   const [data, setData] = useState([]);
   const [searchItem, setSearchItem] = useState("");
   const [countPagination, setCountPagination] = useState(1);
@@ -316,3 +316,5 @@ export const MainSection = ({ onSelect, setOnSelect }) => {
     </>
   );
 };
+
+export default MainSection;

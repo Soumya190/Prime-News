@@ -1,6 +1,6 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import Authprovider from "@/Components/Authprovider/Authprovider";
+import Authprovider from "../Components/Authprovider/Authprovider";
 // import {SessionProvider} from 'next-auth/react';
 
 const geistSans = Geist({
@@ -21,11 +21,11 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <Authprovider>
         <body className={`${geistSans.variable} ${geistMono.variable}`}>
-          {children}
+          <Authprovider>
+            {children}
+          </Authprovider>
         </body>
-      </Authprovider>
       {/* </SessionProvider> */}
     </html>
   );
